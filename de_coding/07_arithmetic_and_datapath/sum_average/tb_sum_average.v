@@ -27,4 +27,9 @@ module tb_sum_average;
         $display("PASS: streaming sum and integer average");
         $finish;
     end
+    initial begin
+        $dumpfile("sum_average_tb_sum_average.vcd");
+        $dumpvars(0, tb_sum_average);
+    end
+
 endmodule

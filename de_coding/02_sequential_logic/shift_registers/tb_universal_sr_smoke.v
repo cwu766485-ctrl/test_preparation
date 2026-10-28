@@ -47,4 +47,9 @@ module tb_universal_sr_smoke;
             $display("PASS: tb_universal_sr_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("shift_registers_tb_universal_sr_smoke.vcd");
+        $dumpvars(0, tb_universal_sr_smoke);
+    end
+
 endmodule

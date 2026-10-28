@@ -42,4 +42,9 @@ module tb_glitch_free_clk_mux_smoke;
             $display("PASS: tb_glitch_free_clk_mux_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("glitch_free_clock_mux_tb_glitch_free_clk_mux_smoke.vcd");
+        $dumpvars(0, tb_glitch_free_clk_mux_smoke);
+    end
+
 endmodule

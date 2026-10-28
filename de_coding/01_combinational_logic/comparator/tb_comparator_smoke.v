@@ -41,4 +41,9 @@ module tb_comparator_smoke;
             $display("PASS: tb_comparator_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("comparator_tb_comparator_smoke.vcd");
+        $dumpvars(0, tb_comparator_smoke);
+    end
+
 endmodule

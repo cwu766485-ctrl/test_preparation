@@ -16,4 +16,4 @@ test:
 	@grep '^PASS:' $(BUILD)/run.log
 
 clean:
-	rm -rf $(BUILD)
+	rm -rf $(BUILD) *.vcd *.vpd *.fsdb *.saif

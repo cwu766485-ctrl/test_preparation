@@ -38,4 +38,9 @@ module tb_seq_circuit_smoke;
             $display("PASS: tb_seq_circuit_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("state_sequence_tb_seq_circuit_smoke.vcd");
+        $dumpvars(0, tb_seq_circuit_smoke);
+    end
+
 endmodule

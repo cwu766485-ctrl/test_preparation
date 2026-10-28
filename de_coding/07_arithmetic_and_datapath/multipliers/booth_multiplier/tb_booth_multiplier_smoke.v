@@ -35,4 +35,9 @@ module tb_booth_multiplier_smoke;
             $display("PASS: tb_booth_multiplier_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("booth_multiplier_tb_booth_multiplier_smoke.vcd");
+        $dumpvars(0, tb_booth_multiplier_smoke);
+    end
+
 endmodule

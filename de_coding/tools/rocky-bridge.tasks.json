@@ -27,6 +27,11 @@
       "executable": "bash",
       "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/02_sequential_logic/counters && make test; status=$?; cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/02_sequential_logic/counters && make clean; clean_status=$?; if [ $status -ne 0 ]; then exit $status; else exit $clean_status; fi"]
     },
+    "vcs-nm6008-matrix": {
+      "description": "Run the NM6008 two-term matrix-vector multiplier testbench with VCS and clean generated files.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/07_arithmetic_and_datapath/nm6008_matrix_multiplier && make test_MatrixMultiplier_tb; status=$?; cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/07_arithmetic_and_datapath/nm6008_matrix_multiplier && make clean; clean_status=$?; if [ $status -ne 0 ]; then exit $status; else exit $clean_status; fi"]
+    },
     "vcs-missing-code-suite": {
       "description": "Run VCS self-checking testbenches for the newly implemented missing exam exercises, then clean every exercise build directory.",
       "executable": "bash",
@@ -48,9 +53,14 @@
       "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/01_combinational_logic/adders_uvm && make run; status=$?; if [ $status -eq 0 ] && grep -q 'PASS=8 FAIL=0' sim.log && ! grep -Eq '^UVM_(ERROR|FATAL)[[:space:]]+[^:]|^UVM_(ERROR|FATAL)[[:space:]]*:[[:space:]]*[1-9]' sim.log; then result=0; else result=1; fi; grep -E 'UVM_(ERROR|FATAL)|SB_REPORT' sim.log 2>/dev/null || true; make clean; clean_status=$?; if [ $result -ne 0 ]; then exit $result; else exit $clean_status; fi"]
     },
     "vcs-secretcode": {
-      "description": "Run behavioral and synthesized secretcode self-checking testbenches in isolated temporary directories.",
+      "description": "Run the secret-code assignment scan and legacy secretcode self-checking regressions in isolated temporary directories.",
       "executable": "bash",
       "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_secretcode_vcs.sh"]
+    },
+    "eda-tools-preflight": {
+      "description": "Check whether the course Design Vision/DC and Innovus executables are available in Rocky Linux.",
+      "executable": "bash",
+      "arguments": ["-lic", "for tool in dc_shell-xg-t design_vision innovus; do command -v $tool || echo $tool: unavailable; done"]
     }
   }
 }

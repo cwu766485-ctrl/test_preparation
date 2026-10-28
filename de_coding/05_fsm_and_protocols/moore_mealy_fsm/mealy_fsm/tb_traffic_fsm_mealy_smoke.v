@@ -38,4 +38,9 @@ module tb_traffic_fsm_mealy_smoke;
             $display("PASS: tb_traffic_fsm_mealy_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("mealy_fsm_tb_traffic_fsm_mealy_smoke.vcd");
+        $dumpvars(0, tb_traffic_fsm_mealy_smoke);
+    end
+
 endmodule

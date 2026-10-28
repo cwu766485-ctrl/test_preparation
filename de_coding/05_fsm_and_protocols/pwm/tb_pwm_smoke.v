@@ -39,4 +39,9 @@ module tb_pwm_smoke;
             $display("PASS: tb_pwm_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pwm_tb_pwm_smoke.vcd");
+        $dumpvars(0, tb_pwm_smoke);
+    end
+
 endmodule

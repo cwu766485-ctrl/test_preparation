@@ -59,4 +59,9 @@ module tb_non_restoring_divider_smoke;
             $display("PASS: tb_non_restoring_divider_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("non_restoring_divider_tb_non_restoring_divider_smoke.vcd");
+        $dumpvars(0, tb_non_restoring_divider_smoke);
+    end
+
 endmodule

@@ -1,0 +1,47 @@
+#!/bin/csh
+# 在 rtl/PowerAnalysis/ 执行：csh run
+if ( ! -e ../../exam_config.csh ) then
+    echo "ERROR: ../../exam_config.csh 不存在。"
+    exit 1
+endif
+source ../../exam_config.csh
+if ( "$TOP" == "X" ) then
+    echo "ERROR: 先编辑 ../../exam_config.csh。"
+    exit 1
+endif
+if ( ! -e ../inter.vpd ) then
+    echo "ERROR: 找不到 ../inter.vpd；先运行 T3，并确认 tb 有 vcdplus 记录。"
+    exit 1
+endif
+if ( ! -e "../Syn_$TOP.v" ) then
+    echo "ERROR: 找不到 ../Syn_$TOP.v"
+    exit 1
+endif
+
+source synopsys_linux_vR_2020_cshrc
+vpd2vcd ../inter.vpd inter.vcd
+if ( $status != 0 ) exit 1
+vcd2saif -i ./inter.vcd -o inter.saif
+if ( $status != 0 ) exit 1
+
+echo "read_verilog ../Syn_$TOP.v" > pa_exam.tcl
+echo "current_design $TOP" >> pa_exam.tcl
+echo 'link' >> pa_exam.tcl
+echo "read_saif -input ./inter.saif -instance $TB_MODULE/$DUT_INSTANCE" >> pa_exam.tcl
+echo 'report_saif > rpt_saif.txt' >> pa_exam.tcl
+echo 'report_power > rpt_power.txt' >> pa_exam.tcl
+echo 'report_power -hier > rpt_power_hier.txt' >> pa_exam.tcl
+echo 'report_power -hier -nosplit > rpt_power_hier_nosplit.txt' >> pa_exam.tcl
+echo 'report_power -cell > rpt_power_cell.txt' >> pa_exam.tcl
+echo 'exit' >> pa_exam.tcl
+if ( -e rpt_power.txt ) mv rpt_power.txt "rpt_power.previous_$$.txt"
+dc_shell-xg-t -f pa_exam.tcl >& power_run.log
+if ( $status != 0 ) then
+    echo "ERROR: 功耗分析失败；查看 power_run.log"
+    exit 1
+endif
+if ( ! -e rpt_power.txt ) then
+    echo "ERROR: 没生成 rpt_power.txt；查看 power_run.log"
+    exit 1
+endif
+echo "T4 完成：从 rpt_power.txt 读取 Total Power 和单位；用 rpt_saif.txt 检查活动标注。"

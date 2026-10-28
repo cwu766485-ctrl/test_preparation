@@ -21,4 +21,9 @@ module tb_matvec_2x2;
         $display("PASS: signed 2x2 matrix-vector product");
         $finish;
     end
+    initial begin
+        $dumpfile("matvec_2x2_tb_matvec_2x2.vcd");
+        $dumpvars(0, tb_matvec_2x2);
+    end
+
 endmodule

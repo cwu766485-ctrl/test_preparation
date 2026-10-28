@@ -28,4 +28,9 @@ module tb_serial_adder_8_sync_reset;
         $display("PASS: eight-bit serial adder with synchronous reset");
         $finish;
     end
+    initial begin
+        $dumpfile("serial_adder_8_sync_reset_tb_serial_adder_8_sync_reset.vcd");
+        $dumpvars(0, tb_serial_adder_8_sync_reset);
+    end
+
 endmodule

@@ -45,4 +45,9 @@ module tb_password_lock_smoke;
             $display("PASS: tb_password_lock_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("password_lock_tb_password_lock_smoke.vcd");
+        $dumpvars(0, tb_password_lock_smoke);
+    end
+
 endmodule

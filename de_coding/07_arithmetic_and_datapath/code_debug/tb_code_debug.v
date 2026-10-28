@@ -27,4 +27,9 @@ module tb_code_debug;
         else $display("PASS: corrected RTL works and the intentional bug was detected");
         $finish;
     end
+    initial begin
+        $dumpfile("code_debug_tb_code_debug.vcd");
+        $dumpvars(0, tb_code_debug);
+    end
+
 endmodule

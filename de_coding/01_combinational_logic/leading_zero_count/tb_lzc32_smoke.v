@@ -30,4 +30,9 @@ module tb_lzc32_smoke;
             $display("PASS: tb_lzc32_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("leading_zero_count_tb_lzc32_smoke.vcd");
+        $dumpvars(0, tb_lzc32_smoke);
+    end
+
 endmodule

@@ -35,4 +35,9 @@ module tb_clk_div_odd_smoke;
             $display("PASS: tb_clk_div_odd_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("odd_divider_tb_clk_div_odd_smoke.vcd");
+        $dumpvars(0, tb_clk_div_odd_smoke);
+    end
+
 endmodule

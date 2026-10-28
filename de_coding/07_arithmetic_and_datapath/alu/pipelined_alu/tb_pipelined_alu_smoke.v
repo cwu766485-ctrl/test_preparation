@@ -57,4 +57,9 @@ module tb_pipelined_alu_smoke;
             $display("PASS: tb_pipelined_alu_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pipelined_alu_tb_pipelined_alu_smoke.vcd");
+        $dumpvars(0, tb_pipelined_alu_smoke);
+    end
+
 endmodule

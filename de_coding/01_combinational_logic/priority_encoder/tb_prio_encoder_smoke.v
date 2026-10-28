@@ -33,4 +33,9 @@ module tb_prio_encoder_smoke;
             $display("PASS: tb_prio_encoder_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("priority_encoder_tb_prio_encoder_smoke.vcd");
+        $dumpvars(0, tb_prio_encoder_smoke);
+    end
+
 endmodule

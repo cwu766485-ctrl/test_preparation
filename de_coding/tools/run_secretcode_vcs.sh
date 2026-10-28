@@ -118,4 +118,37 @@ run_sequence_compile() {
 }
 
 run_sequence_compile || status=1
+
+run_secretcode_assignment() {
+    local assignment_dir="$secret_root/assignment" work_dir
+    work_dir="$(mktemp -d)" || return 2
+    mkdir -p "$work_dir/rtl" "$work_dir/tb"
+    cp "$assignment_dir/rtl/secret_code_"*.v "$work_dir/rtl/"
+    cp "$assignment_dir/tb/tb_secret_code.sv" "$work_dir/tb/"
+
+    if ! (cd "$work_dir" && vcs -full64 -sverilog -debug_access+all -timescale=1ns/1ps \
+          -top tb_secret_code rtl/*.v tb/tb_secret_code.sv -o simv >compile.log 2>&1); then
+        printf 'FAIL secret-code assignment: VCS compile failed\n'
+        sed -n '/Error-/,$p' "$work_dir/compile.log" | tail -n 40
+        rm -rf "$work_dir"
+        return 1
+    fi
+    if ! (cd "$work_dir" && ./simv >sim.log 2>&1); then
+        printf 'FAIL secret-code assignment: simulation returned nonzero\n'
+        tail -n 40 "$work_dir/sim.log"
+        rm -rf "$work_dir"
+        return 1
+    fi
+    if ! grep -q '^PASS: secret-code search, four M blocks, single 12-bit counter, restart, and reset' "$work_dir/sim.log"; then
+        printf 'FAIL secret-code assignment: missing passing summary\n'
+        tail -n 40 "$work_dir/sim.log"
+        rm -rf "$work_dir"
+        return 1
+    fi
+    printf 'PASS secret-code number-generator assignment\n'
+    rm -rf "$work_dir"
+    return 0
+}
+
+run_secretcode_assignment || status=1
 exit "$status"

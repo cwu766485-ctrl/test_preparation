@@ -32,4 +32,9 @@ module tb_multiplier_adder_tree_smoke;
             $display("PASS: tb_multiplier_adder_tree_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pipelined_multiplier_tb_multiplier_adder_tree_smoke.vcd");
+        $dumpvars(0, tb_multiplier_adder_tree_smoke);
+    end
+
 endmodule

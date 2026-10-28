@@ -45,4 +45,9 @@ module tb_pulse_handshake_smoke;
             $display("PASS: tb_pulse_handshake_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pulse_sync_tb_pulse_handshake_smoke.vcd");
+        $dumpvars(0, tb_pulse_handshake_smoke);
+    end
+
 endmodule

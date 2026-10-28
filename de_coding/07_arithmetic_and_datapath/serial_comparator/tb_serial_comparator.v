@@ -33,4 +33,9 @@ module tb_serial_comparator;
         $display("PASS: unsigned bit-serial comparator");
         $finish;
     end
+    initial begin
+        $dumpfile("serial_comparator_tb_serial_comparator.vcd");
+        $dumpvars(0, tb_serial_comparator);
+    end
+
 endmodule

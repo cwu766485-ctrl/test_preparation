@@ -46,4 +46,9 @@ module tb_event_counter_cdc_smoke;
             $display("PASS: tb_event_counter_cdc_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pulse_sync_tb_event_counter_cdc_smoke.vcd");
+        $dumpvars(0, tb_event_counter_cdc_smoke);
+    end
+
 endmodule

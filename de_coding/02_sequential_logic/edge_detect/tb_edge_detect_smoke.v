@@ -44,4 +44,9 @@ module tb_edge_detect_smoke;
             $display("PASS: tb_edge_detect_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("edge_detect_tb_edge_detect_smoke.vcd");
+        $dumpvars(0, tb_edge_detect_smoke);
+    end
+
 endmodule

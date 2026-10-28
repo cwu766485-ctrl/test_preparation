@@ -42,4 +42,9 @@ module tb_dff_sync_en_smoke;
             $display("PASS: tb_dff_sync_en_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("dff_tb_dff_sync_en_smoke.vcd");
+        $dumpvars(0, tb_dff_sync_en_smoke);
+    end
+
 endmodule

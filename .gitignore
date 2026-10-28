@@ -22,3 +22,14 @@ library.f
 *.lib
 *.lef
 *.gds
+
+# Additional Synopsys temporary outputs
+*.daidir/
+*.ses
+*.ses.png
+*.ddc
+*.svf
+*.swp
+*.sdf
+*.saif
+

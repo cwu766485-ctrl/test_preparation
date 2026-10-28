@@ -1,0 +1,23 @@
+# arithmetic shifter
+
+<!-- BEGIN generated exam quick reference -->
+## RTL、TB 与考试命令
+
+**设计说明：**本题练习 `arithmetic shifter`，RTL 顶层/子模块为 `arithmetic_shifter`。 源文件说明：Arithmetic right shifter. Advantage: preserves the sign bit for signed two's-complement data. Disadvantage: it is intended for signed right shifts, not unsigned data.
+
+**RTL 文件：**`arithmetic_shifter.v`。
+
+**TB 文件：**
+- `tb_arithmetic_shifter_smoke.v`（顶层 `tb_arithmetic_shifter_smoke`）：驱动输入并在仿真中检查 DUT 输出/时序。
+
+**VCS：**
+
+```sh
+make test
+make clean
+```
+
+`make test` 在 VCS 下编译并运行；波形和日志位于 `build/`，交报告前先保存所需截图再执行 `make clean`。
+
+综合、门级仿真、波形和报告写作步骤见[考试报告流程](../../../tools/EXAM_REPORT_GUIDE.md)。
+<!-- END generated exam quick reference -->

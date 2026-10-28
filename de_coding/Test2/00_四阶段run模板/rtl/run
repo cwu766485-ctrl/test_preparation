@@ -1,0 +1,47 @@
+#!/bin/csh
+# 在 rtl/ 执行：csh run
+if ( ! -e ../exam_config.csh ) then
+    echo "ERROR: ../exam_config.csh 不存在。"
+    exit 1
+endif
+source ../exam_config.csh
+if ( "$TOP" == "X" ) then
+    echo "ERROR: 先编辑 ../exam_config.csh。"
+    exit 1
+endif
+if ( ! -e "../Synthesis/netlist/Syn_$TOP.v" || ! -e "../Synthesis/netlist/Syn_$TOP.sdf" ) then
+    echo "ERROR: 找不到综合网表或 SDF；先运行 T2。"
+    exit 1
+endif
+if ( ! -e library.f ) then
+    echo "ERROR: 找不到 library.f 标准单元模型清单。"
+    exit 1
+endif
+if ( ! -e "../Behavioral/$TB_FILE" ) then
+    echo "ERROR: 找不到 Behavioral/$TB_FILE"
+    exit 1
+endif
+
+cp "../Synthesis/netlist/Syn_$TOP.v" .
+cp "../Synthesis/netlist/Syn_$TOP.sdf" .
+if ( -e "../Synthesis/netlist/Syn_$TOP.sdc" ) cp "../Synthesis/netlist/Syn_$TOP.sdc" .
+cp "../Behavioral/$TB_FILE" .
+if ( -e ../Behavioral/InputVector.txt ) cp ../Behavioral/InputVector.txt .
+
+source synopsys_linux_vP_2019_cshrc
+if ( -e inter.vpd ) mv inter.vpd "inter.previous_$$.vpd"
+if ( -e Check.txt ) mv Check.txt "Check.previous_$$.txt"
+vcs -debug +v2k +neg_tchk +define+VCS +define+GATE_SIM "./$TB_FILE" "./Syn_$TOP.v" -f ./library.f -l compile_gate.log
+if ( $status != 0 ) then
+    echo "ERROR: 门级 VCS 编译失败；查看 compile_gate.log"
+    exit 1
+endif
+./simv -l sim_gate.log
+if ( $status != 0 ) then
+    echo "ERROR: 门级仿真进程失败；查看 sim_gate.log"
+    exit 1
+endif
+if ( ! -e inter.vpd ) then
+    echo "WARNING: 未生成新的 inter.vpd；如果要做 T4，请检查 tb 中的 vcdplus 记录。"
+endif
+echo "T3 完成：查看 sim_gate.log 的 SDF 反标信息和功能结果，并确认 inter.vpd 已生成。"

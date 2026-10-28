@@ -50,4 +50,9 @@ module tb_parallel_to_serial_smoke;
             $display("PASS: tb_parallel_to_serial_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("parallel_to_serial_tb_parallel_to_serial_smoke.vcd");
+        $dumpvars(0, tb_parallel_to_serial_smoke);
+    end
+
 endmodule

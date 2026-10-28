@@ -49,4 +49,9 @@ module tb_interrupt_cdc_smoke;
             $display("PASS: tb_interrupt_cdc_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("interrupt_cdc_tb_interrupt_cdc_smoke.vcd");
+        $dumpvars(0, tb_interrupt_cdc_smoke);
+    end
+
 endmodule

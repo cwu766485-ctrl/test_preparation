@@ -56,4 +56,9 @@ module tb_radix4_divider_smoke;
             $display("PASS: tb_radix4_divider_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("radix4_divider_tb_radix4_divider_smoke.vcd");
+        $dumpvars(0, tb_radix4_divider_smoke);
+    end
+
 endmodule

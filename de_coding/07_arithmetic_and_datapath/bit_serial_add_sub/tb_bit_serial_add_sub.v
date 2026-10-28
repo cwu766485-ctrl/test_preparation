@@ -31,4 +31,9 @@ module tb_bit_serial_add_sub;
         $display("PASS: bit-serial add/subtract");
         $finish;
     end
+    initial begin
+        $dumpfile("bit_serial_add_sub_tb_bit_serial_add_sub.vcd");
+        $dumpvars(0, tb_bit_serial_add_sub);
+    end
+
 endmodule

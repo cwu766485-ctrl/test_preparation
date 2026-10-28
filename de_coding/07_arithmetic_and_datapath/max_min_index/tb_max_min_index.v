@@ -29,4 +29,9 @@ module tb_max_min_index;
         $display("PASS: min/max values and first positions");
         $finish;
     end
+    initial begin
+        $dumpfile("max_min_index_tb_max_min_index.vcd");
+        $dumpvars(0, tb_max_min_index);
+    end
+
 endmodule

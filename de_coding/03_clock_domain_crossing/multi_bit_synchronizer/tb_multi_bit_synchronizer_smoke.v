@@ -53,4 +53,9 @@ module tb_multi_bit_synchronizer_smoke;
             $display("PASS: tb_multi_bit_synchronizer_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("multi_bit_synchronizer_tb_multi_bit_synchronizer_smoke.vcd");
+        $dumpvars(0, tb_multi_bit_synchronizer_smoke);
+    end
+
 endmodule

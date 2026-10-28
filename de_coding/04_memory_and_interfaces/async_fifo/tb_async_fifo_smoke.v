@@ -58,4 +58,9 @@ module tb_async_fifo_smoke;
             $display("PASS: tb_async_fifo_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("async_fifo_tb_async_fifo_smoke.vcd");
+        $dumpvars(0, tb_async_fifo_smoke);
+    end
+
 endmodule

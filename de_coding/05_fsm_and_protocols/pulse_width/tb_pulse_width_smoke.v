@@ -41,4 +41,9 @@ module tb_pulse_width_smoke;
             $display("PASS: tb_pulse_width_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pulse_width_tb_pulse_width_smoke.vcd");
+        $dumpvars(0, tb_pulse_width_smoke);
+    end
+
 endmodule

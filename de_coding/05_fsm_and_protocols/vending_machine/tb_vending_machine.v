@@ -34,4 +34,9 @@ module tb_vending_machine;
         $display("PASS: vending, change, and credit reset");
         $finish;
     end
+    initial begin
+        $dumpfile("vending_machine_tb_vending_machine.vcd");
+        $dumpvars(0, tb_vending_machine);
+    end
+
 endmodule

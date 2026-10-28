@@ -29,4 +29,9 @@ module tb_serial_subtractor;
         $display("PASS: variable-width serial subtractor");
         $finish;
     end
+    initial begin
+        $dumpfile("serial_subtractor_tb_serial_subtractor.vcd");
+        $dumpvars(0, tb_serial_subtractor);
+    end
+
 endmodule

@@ -38,4 +38,9 @@ module tb_seq_detect_101_smoke;
             $display("PASS: tb_seq_detect_101_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("sequence_101_tb_seq_detect_101_smoke.vcd");
+        $dumpvars(0, tb_seq_detect_101_smoke);
+    end
+
 endmodule

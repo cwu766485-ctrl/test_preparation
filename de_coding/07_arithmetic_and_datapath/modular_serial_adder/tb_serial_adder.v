@@ -30,4 +30,9 @@ module tb_serial_adder;
         $display("PASS: modular 16-bit serial adder hierarchy");
         $finish;
     end
+    initial begin
+        $dumpfile("modular_serial_adder_tb_serial_adder.vcd");
+        $dumpvars(0, tb_serial_adder);
+    end
+
 endmodule

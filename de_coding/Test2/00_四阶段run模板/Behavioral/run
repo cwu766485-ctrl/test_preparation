@@ -1,0 +1,38 @@
+#!/bin/csh
+# 在 Behavioral/ 执行：csh run
+if ( ! -e ../exam_config.csh ) then
+    echo "ERROR: ../exam_config.csh 不存在；请先复制整个模板到工程目录。"
+    exit 1
+endif
+source ../exam_config.csh
+if ( "$TOP" == "X" ) then
+    echo "ERROR: 先编辑 ../exam_config.csh 中的 TOP、TB_FILE、RTL_FILES。"
+    exit 1
+endif
+if ( ! -e "$TB_FILE" ) then
+    echo "ERROR: 找不到 testbench $TB_FILE"
+    exit 1
+endif
+
+set RTL_PATHS = ()
+foreach f ( $RTL_FILES )
+    if ( ! -e "$f" ) then
+        echo "ERROR: 找不到设计文件 $f"
+        exit 1
+    endif
+    set RTL_PATHS = ( $RTL_PATHS "./$f" )
+end
+
+source synopsys_linux_vP_2019_cshrc
+if ( -e Check.txt ) mv Check.txt "Check.previous_$$.txt"
+vcs -debug +v2k +define+VCS "./$TB_FILE" $RTL_PATHS -l compile_beh.log
+if ( $status != 0 ) then
+    echo "ERROR: VCS 编译失败；查看 compile_beh.log"
+    exit 1
+endif
+./simv -l sim_beh.log
+if ( $status != 0 ) then
+    echo "ERROR: 仿真进程失败；查看 sim_beh.log"
+    exit 1
+endif
+echo "T1 完成：查看 sim_beh.log、Check.txt（若 tb 写了）、波形；仍须核对功能是否正确。"

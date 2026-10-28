@@ -41,4 +41,9 @@ module tb_carry_lookahead_adder_smoke;
             $display("PASS: tb_carry_lookahead_adder_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("carry_lookahead_adder_tb_carry_lookahead_adder_smoke.vcd");
+        $dumpvars(0, tb_carry_lookahead_adder_smoke);
+    end
+
 endmodule

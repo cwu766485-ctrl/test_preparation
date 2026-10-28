@@ -45,4 +45,9 @@ module tb_crc8_smoke;
             $display("PASS: tb_crc8_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("crc8_tb_crc8_smoke.vcd");
+        $dumpvars(0, tb_crc8_smoke);
+    end
+
 endmodule

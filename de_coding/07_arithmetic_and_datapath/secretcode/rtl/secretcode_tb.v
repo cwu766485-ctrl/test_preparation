@@ -115,4 +115,9 @@ module secretcode_tb;
         #100000;
         $fatal(1, "FAIL: secretcode test timeout");
     end
+    initial begin
+        $dumpfile("rtl_secretcode_tb.vcd");
+        $dumpvars(0, secretcode_tb);
+    end
+
 endmodule

@@ -35,4 +35,9 @@ module tb_wallace_compressor_tree_smoke;
             $display("PASS: tb_wallace_compressor_tree_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("wallace_multiplier_tb_wallace_compressor_tree_smoke.vcd");
+        $dumpvars(0, tb_wallace_compressor_tree_smoke);
+    end
+
 endmodule

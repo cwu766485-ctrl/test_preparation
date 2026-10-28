@@ -4,6 +4,12 @@
 problems and shared VCS helpers. See [`MAP.md`](MAP.md) for the directory map,
 module topics, quick search commands, and simulation entry points.
 
+For the NM6008 report workflow (behavioral waveform, Module 3 Design Vision,
+gate-level simulation, and the Module 6 PDK-dependent Innovus steps), see
+[`tools/EXAM_REPORT_GUIDE.md`](tools/EXAM_REPORT_GUIDE.md). The assignment
+number-generator version of secretcode is under
+[`07_arithmetic_and_datapath/secretcode/assignment/`](07_arithmetic_and_datapath/secretcode/assignment/README.md).
+
 ## Sections
 
 | Folder | Topics |

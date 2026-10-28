@@ -55,4 +55,9 @@ module tb_matrix_multiplier_smoke;
             $display("PASS: tb_matrix_multiplier_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("matrix_multiplier_tb_matrix_multiplier_smoke.vcd");
+        $dumpvars(0, tb_matrix_multiplier_smoke);
+    end
+
 endmodule

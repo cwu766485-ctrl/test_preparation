@@ -42,4 +42,9 @@ module tb_uart_rx_smoke;
             $display("PASS: tb_uart_rx_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("uart_rx_tb_uart_rx_smoke.vcd");
+        $dumpvars(0, tb_uart_rx_smoke);
+    end
+
 endmodule

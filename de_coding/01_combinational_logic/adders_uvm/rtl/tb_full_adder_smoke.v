@@ -41,4 +41,9 @@ module tb_full_adder_smoke;
             $display("PASS: tb_full_adder_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("rtl_tb_full_adder_smoke.vcd");
+        $dumpvars(0, tb_full_adder_smoke);
+    end
+
 endmodule

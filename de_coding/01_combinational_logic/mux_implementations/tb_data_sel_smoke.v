@@ -50,4 +50,9 @@ module tb_data_sel_smoke;
             $display("PASS: tb_data_sel_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("mux_implementations_tb_data_sel_smoke.vcd");
+        $dumpvars(0, tb_data_sel_smoke);
+    end
+
 endmodule

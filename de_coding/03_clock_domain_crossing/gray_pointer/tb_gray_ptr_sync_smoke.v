@@ -47,4 +47,9 @@ module tb_gray_ptr_sync_smoke;
             $display("PASS: tb_gray_ptr_sync_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("gray_pointer_tb_gray_ptr_sync_smoke.vcd");
+        $dumpvars(0, tb_gray_ptr_sync_smoke);
+    end
+
 endmodule

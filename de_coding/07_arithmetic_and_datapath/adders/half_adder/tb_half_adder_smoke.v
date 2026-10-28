@@ -37,4 +37,9 @@ module tb_half_adder_smoke;
             $display("PASS: tb_half_adder_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("half_adder_tb_half_adder_smoke.vcd");
+        $dumpvars(0, tb_half_adder_smoke);
+    end
+
 endmodule

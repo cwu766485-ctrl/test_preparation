@@ -44,4 +44,9 @@ module tb_seq_det_101_moore;
         else $display("FAIL: %0d sequence detector errors", errors);
         $finish;
     end
+    initial begin
+        $dumpfile("sequence_101_moore_tb_seq_det_101_moore.vcd");
+        $dumpvars(0, tb_seq_det_101_moore);
+    end
+
 endmodule

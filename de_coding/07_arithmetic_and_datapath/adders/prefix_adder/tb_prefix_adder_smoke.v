@@ -42,4 +42,9 @@ module tb_prefix_adder_smoke;
             $display("PASS: tb_prefix_adder_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("prefix_adder_tb_prefix_adder_smoke.vcd");
+        $dumpvars(0, tb_prefix_adder_smoke);
+    end
+
 endmodule

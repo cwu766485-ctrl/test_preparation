@@ -35,4 +35,9 @@ module tb_clk_div_even_smoke;
             $display("PASS: tb_clk_div_even_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("even_divider_tb_clk_div_even_smoke.vcd");
+        $dumpvars(0, tb_clk_div_even_smoke);
+    end
+
 endmodule

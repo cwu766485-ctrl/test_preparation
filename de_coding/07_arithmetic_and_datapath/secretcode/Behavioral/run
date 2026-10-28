@@ -1,0 +1,25 @@
+
+csh
+//source the licence
+source synopsys_linux_vP_2019_cshrc
+
+//run  verilog
+
+
+
+
+
+vcs -debug +v2k \
+        ./secretcode_tb.v \
+        ./secretcode.v \
+
+
+
+           	
+simv -gui
+
+
+
+
+
+

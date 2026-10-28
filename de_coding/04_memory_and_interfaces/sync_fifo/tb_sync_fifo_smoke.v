@@ -54,4 +54,9 @@ module tb_sync_fifo_smoke;
             $display("PASS: tb_sync_fifo_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("sync_fifo_tb_sync_fifo_smoke.vcd");
+        $dumpvars(0, tb_sync_fifo_smoke);
+    end
+
 endmodule

@@ -61,4 +61,9 @@ module tb_async_dp_ram_smoke;
             $display("PASS: tb_async_dp_ram_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("async_dual_port_ram_tb_async_dp_ram_smoke.vcd");
+        $dumpvars(0, tb_async_dp_ram_smoke);
+    end
+
 endmodule

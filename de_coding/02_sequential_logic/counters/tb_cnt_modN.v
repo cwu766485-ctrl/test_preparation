@@ -68,4 +68,9 @@ module tb_cnt_modN;
         $display("PASS: cnt_modN cycles 0..%0d and asserts tc at N-1", N-1);
         $finish;
     end
+    initial begin
+        $dumpfile("counters_tb_cnt_modN.vcd");
+        $dumpvars(0, tb_cnt_modN);
+    end
+
 endmodule

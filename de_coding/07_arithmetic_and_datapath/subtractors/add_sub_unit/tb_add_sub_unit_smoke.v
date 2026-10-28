@@ -42,4 +42,9 @@ module tb_add_sub_unit_smoke;
             $display("PASS: tb_add_sub_unit_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("add_sub_unit_tb_add_sub_unit_smoke.vcd");
+        $dumpvars(0, tb_add_sub_unit_smoke);
+    end
+
 endmodule

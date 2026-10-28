@@ -38,4 +38,9 @@ module tb_sel_exp_smoke;
             $display("PASS: tb_sel_exp_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("mux_implementations_tb_sel_exp_smoke.vcd");
+        $dumpvars(0, tb_sel_exp_smoke);
+    end
+
 endmodule

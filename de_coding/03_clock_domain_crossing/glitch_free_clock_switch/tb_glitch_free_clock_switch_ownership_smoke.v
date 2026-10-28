@@ -46,4 +46,9 @@ module tb_glitch_free_clock_switch_ownership_smoke;
             $display("PASS: tb_glitch_free_clock_switch_ownership_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("glitch_free_clock_switch_tb_glitch_free_clock_switch_ownership_smoke.vcd");
+        $dumpvars(0, tb_glitch_free_clock_switch_ownership_smoke);
+    end
+
 endmodule

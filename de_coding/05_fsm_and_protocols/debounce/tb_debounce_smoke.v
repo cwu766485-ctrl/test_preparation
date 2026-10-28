@@ -39,4 +39,9 @@ module tb_debounce_smoke;
             $display("PASS: tb_debounce_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("debounce_tb_debounce_smoke.vcd");
+        $dumpvars(0, tb_debounce_smoke);
+    end
+
 endmodule

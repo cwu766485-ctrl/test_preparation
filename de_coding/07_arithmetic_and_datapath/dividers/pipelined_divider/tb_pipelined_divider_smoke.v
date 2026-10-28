@@ -56,4 +56,9 @@ module tb_pipelined_divider_smoke;
             $display("PASS: tb_pipelined_divider_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("pipelined_divider_tb_pipelined_divider_smoke.vcd");
+        $dumpvars(0, tb_pipelined_divider_smoke);
+    end
+
 endmodule

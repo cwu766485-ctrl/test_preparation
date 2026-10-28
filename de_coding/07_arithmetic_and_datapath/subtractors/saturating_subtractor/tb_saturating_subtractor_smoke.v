@@ -38,4 +38,9 @@ module tb_saturating_subtractor_smoke;
             $display("PASS: tb_saturating_subtractor_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("saturating_subtractor_tb_saturating_subtractor_smoke.vcd");
+        $dumpvars(0, tb_saturating_subtractor_smoke);
+    end
+
 endmodule

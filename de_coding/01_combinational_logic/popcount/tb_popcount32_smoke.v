@@ -30,4 +30,9 @@ module tb_popcount32_smoke;
             $display("PASS: tb_popcount32_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("popcount_tb_popcount32_smoke.vcd");
+        $dumpvars(0, tb_popcount32_smoke);
+    end
+
 endmodule

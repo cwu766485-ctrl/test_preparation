@@ -36,4 +36,9 @@ module tb_arithmetic_shifter_smoke;
             $display("PASS: tb_arithmetic_shifter_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("arithmetic_shifter_tb_arithmetic_shifter_smoke.vcd");
+        $dumpvars(0, tb_arithmetic_shifter_smoke);
+    end
+
 endmodule

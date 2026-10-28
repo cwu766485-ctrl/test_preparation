@@ -35,4 +35,9 @@ module tb_reset_synchronizer_smoke;
             $display("PASS: tb_reset_synchronizer_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("reset_synchronizer_tb_reset_synchronizer_smoke.vcd");
+        $dumpvars(0, tb_reset_synchronizer_smoke);
+    end
+
 endmodule

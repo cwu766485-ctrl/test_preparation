@@ -38,4 +38,9 @@ module tb_fsm_3seg_smoke;
             $display("PASS: tb_fsm_3seg_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("3seg_fsm_tb_fsm_3seg_smoke.vcd");
+        $dumpvars(0, tb_fsm_3seg_smoke);
+    end
+
 endmodule

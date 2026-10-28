@@ -38,4 +38,9 @@ module tb_bin_gray_smoke;
             $display("PASS: tb_bin_gray_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("comparator_parity_gray_tb_bin_gray_smoke.vcd");
+        $dumpvars(0, tb_bin_gray_smoke);
+    end
+
 endmodule

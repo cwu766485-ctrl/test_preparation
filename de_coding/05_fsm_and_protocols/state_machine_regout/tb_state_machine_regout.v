@@ -36,4 +36,9 @@ module tb_state_machine_regout;
         else $display("FAIL: %0d FSM output errors", errors);
         $finish;
     end
+    initial begin
+        $dumpfile("state_machine_regout_tb_state_machine_regout.vcd");
+        $dumpvars(0, tb_state_machine_regout);
+    end
+
 endmodule

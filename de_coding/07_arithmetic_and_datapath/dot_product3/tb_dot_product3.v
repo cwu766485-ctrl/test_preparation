@@ -22,4 +22,9 @@ module tb_dot_product3;
         $display("PASS: signed three-term dot product");
         $finish;
     end
+    initial begin
+        $dumpfile("dot_product3_tb_dot_product3.vcd");
+        $dumpvars(0, tb_dot_product3);
+    end
+
 endmodule

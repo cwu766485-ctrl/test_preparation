@@ -42,4 +42,9 @@ module tb_seg_scan_smoke;
             $display("PASS: tb_seg_scan_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("seven_segment_scan_tb_seg_scan_smoke.vcd");
+        $dumpvars(0, tb_seg_scan_smoke);
+    end
+
 endmodule

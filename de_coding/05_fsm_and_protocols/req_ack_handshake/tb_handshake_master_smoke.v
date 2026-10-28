@@ -52,4 +52,9 @@ module tb_handshake_master_smoke;
             $display("PASS: tb_handshake_master_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("req_ack_handshake_tb_handshake_master_smoke.vcd");
+        $dumpvars(0, tb_handshake_master_smoke);
+    end
+
 endmodule

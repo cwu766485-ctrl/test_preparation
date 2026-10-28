@@ -38,4 +38,9 @@ module tb_mux2_assign_smoke;
             $display("PASS: tb_mux2_assign_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("mux_variants_tb_mux2_assign_smoke.vcd");
+        $dumpvars(0, tb_mux2_assign_smoke);
+    end
+
 endmodule

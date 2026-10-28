@@ -39,4 +39,9 @@ module tb_shift_reg_smoke;
             $display("PASS: tb_shift_reg_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("shift_registers_tb_shift_reg_smoke.vcd");
+        $dumpvars(0, tb_shift_reg_smoke);
+    end
+
 endmodule

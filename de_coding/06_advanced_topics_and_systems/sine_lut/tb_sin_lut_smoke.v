@@ -30,4 +30,9 @@ module tb_sin_lut_smoke;
             $display("PASS: tb_sin_lut_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("sine_lut_tb_sin_lut_smoke.vcd");
+        $dumpvars(0, tb_sin_lut_smoke);
+    end
+
 endmodule

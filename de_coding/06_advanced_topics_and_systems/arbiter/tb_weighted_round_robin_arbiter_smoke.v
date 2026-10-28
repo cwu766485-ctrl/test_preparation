@@ -49,4 +49,9 @@ module tb_weighted_round_robin_arbiter_smoke;
             $display("PASS: tb_weighted_round_robin_arbiter_smoke completed %0d cycles", cycle);
         $finish;
     end
+    initial begin
+        $dumpfile("arbiter_tb_weighted_round_robin_arbiter_smoke.vcd");
+        $dumpvars(0, tb_weighted_round_robin_arbiter_smoke);
+    end
+
 endmodule

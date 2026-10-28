@@ -54,4 +54,9 @@ module tb_cnt_up;
         $display("PASS: cnt_up counts 0..15, wraps, and holds when disabled");
         $finish;
     end
+    initial begin
+        $dumpfile("counters_tb_cnt_up.vcd");
+        $dumpvars(0, tb_cnt_up);
+    end
+
 endmodule

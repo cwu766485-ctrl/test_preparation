@@ -30,4 +30,9 @@ module tb_serial_adder;
         $display("PASS: variable-width serial adder");
         $finish;
     end
+    initial begin
+        $dumpfile("serial_adder_tb_serial_adder.vcd");
+        $dumpvars(0, tb_serial_adder);
+    end
+
 endmodule
