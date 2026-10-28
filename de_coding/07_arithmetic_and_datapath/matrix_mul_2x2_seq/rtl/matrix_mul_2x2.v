@@ -37,7 +37,7 @@ module matrix_mul_2x2 (
 
     // 0,1 => C00; 2,3 => C01; 4,5 => C10; 6,7 => C11.
     // Input registers are the sole sources during busy.
-    always @* begin
+    always @(*) begin
         mul_a  = 8'd0;
         mul_b  = 8'd0;
         acc_in = 17'd0;
