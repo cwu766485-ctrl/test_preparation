@@ -1,4 +1,4 @@
-# state sequence
+# 状态序列
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

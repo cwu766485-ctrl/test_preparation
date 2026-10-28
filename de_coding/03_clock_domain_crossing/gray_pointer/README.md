@@ -1,9 +1,9 @@
-# gray pointer
+# 格雷码指针同步
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `gray pointer`，RTL 顶层/子模块为 `gray_ptr_sync`, `gray_ptr_sync`。 源文件说明：input is multiple bits only 1 bit change once, thus 1 bit may at metastability.
+**设计说明：**本题练习 `gray pointer`，RTL 顶层/子模块为 `gray_ptr_sync`, `gray_ptr_sync`。 源文件说明：格雷码相邻计数值只有一位变化，可降低跨时钟域采样时多位同时变化造成的错误风险。
 
 **RTL 文件：**`gray_pointer.sv`, `gray_pointer.v`。
 

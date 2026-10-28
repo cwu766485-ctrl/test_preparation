@@ -1,9 +1,9 @@
-# shift add multiplier
+# 移位相加乘法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `shift add multiplier`，RTL 顶层/子模块为 `shift_add_multiplier`。 源文件说明：Iterative unsigned shift-and-add multiplier. Advantage: small hardware; one add/shift step per cycle. Disadvantage: latency is WIDTH cycles and throughput is low.
+**设计说明：**本题练习 `shift add multiplier`，RTL 顶层/子模块为 `shift_add_multiplier`。 源文件说明：迭代式无符号移位相加乘法器。优点：硬件规模较小，每周期执行一次加法/移位。缺点：延迟为 WIDTH 个周期，吞吐率较低。
 
 **RTL 文件：**`shift_add_multiplier.v`。
 

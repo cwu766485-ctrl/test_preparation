@@ -1,4 +1,4 @@
-# pulse width
+# 脉宽测量
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

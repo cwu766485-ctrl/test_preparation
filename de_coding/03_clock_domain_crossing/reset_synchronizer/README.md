@@ -1,9 +1,9 @@
-# reset synchronizer
+# 复位同步器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `reset synchronizer`，RTL 顶层/子模块为 `dual_clock_reset_sync`, `dual_clock_reset_sync`, `reset_synchronizer`, `reset_synchronizer`。 源文件说明：Example wrapper for two unrelated clock domains. Both local resets assert immediately with async_rst_n, but each reset deasserts only on the active edge of its own clock.
+**设计说明：**本题练习 `reset synchronizer`，RTL 顶层/子模块为 `dual_clock_reset_sync`, `dual_clock_reset_sync`, `reset_synchronizer`, `reset_synchronizer`。 源文件说明：两个互不相关时钟域的复位示例：async_rst_n 可立即异步拉低各域复位；各域复位只能在本域时钟有效沿同步释放。
 
 **RTL 文件：**`dual_clock_reset_sync.sv`, `dual_clock_reset_sync.v`, `reset_synchronizer.sv`, `reset_synchronizer.v`。
 

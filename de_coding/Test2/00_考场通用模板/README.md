@@ -1,6 +1,3 @@
-# Exam coding templates
+# 考场编码模板
 
-`组合逻辑模板/` and `时序电路模板/` are starting points for organizing RTL,
-TB, and vector files. Copy the template to a fresh exercise folder, rename the
-module/TB consistently, and update all expected values for the question. They
-are not ready-made implementations of a particular exam question.
+组合逻辑模板/ 和时序电路模板/ 用于整理 RTL、TB 和输入向量文件。把模板复制到新的练习目录，统一修改模块名和 TB 名称，并根据题目更新所有期望值。它们是空白起点，不是任何一道考试题的现成答案。

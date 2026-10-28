@@ -1,9 +1,9 @@
-# booth multiplier
+# Booth 乘法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `booth multiplier`，RTL 顶层/子模块为 `booth_multiplier`。 源文件说明：Combinational signed radix-2 Booth multiplier. Advantage: recodes adjacent multiplier bits into 0, +A, or -A partial products. Disadvantage: recoding and the signed…
+**设计说明：**本题练习 `booth multiplier`，RTL 顶层/子模块为 `booth_multiplier`。 源文件说明：组合型有符号基 2 Booth 乘法器。通过相邻乘数位重编码，生成 0、+A 或 -A 部分积。缺点：重编码和符号处理逻辑会增加设计复杂度。
 
 **RTL 文件：**`booth_multiplier.v`。
 

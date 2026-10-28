@@ -1,4 +1,4 @@
-# sync fifo
+# 同步 FIFO
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

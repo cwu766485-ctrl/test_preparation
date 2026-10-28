@@ -1,4 +1,4 @@
-# sources
+# 综合源文件说明
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

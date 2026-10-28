@@ -1,9 +1,9 @@
-# subtractor
+# 减法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `subtractor`，RTL 顶层/子模块为 `subtractor`。 源文件说明：Subtractor with borrow-in. Advantage: direct multi-bit subtraction primitive. Disadvantage: borrow propagation can limit timing in a long chain.
+**设计说明：**本题练习 `subtractor`，RTL 顶层/子模块为 `subtractor`。 源文件说明：带借位输入的减法器。优点：可直接作为多位减法的基本单元。缺点：长链中的借位传播可能限制时序。
 
 **RTL 文件：**`subtractor.v`。
 

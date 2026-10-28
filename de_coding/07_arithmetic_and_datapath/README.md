@@ -1,8 +1,8 @@
-# Arithmetic and Datapath
+# 07 · 算术与数据通路
 
 本篇集中整理加法器、减法器、乘法器、除法器、移位器和 ALU。
 
-## Directory
+## 目录结构
 
 ```text
 07_arithmetic_and_datapath/

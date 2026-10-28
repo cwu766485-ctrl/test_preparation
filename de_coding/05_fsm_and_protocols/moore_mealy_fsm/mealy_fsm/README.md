@@ -1,4 +1,4 @@
-# mealy fsm
+# Mealy 状态机
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

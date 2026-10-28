@@ -1,16 +1,10 @@
-# Shared tools
+# 共用工具
 
-- `VCS_USAGE.md`: command usage and Rocky Linux VCS setup.
-- `EXAM_REPORT_GUIDE.md`: NM6008 report outline, Module 3 synthesis/gate flow,
-  and Module 6 layout prerequisites.
-- `run_vcs_all.sh`, `run_sv_vcs.sh`, `run_test2_vcs.sh`,
-  `run_missing_code_vcs.sh`, `run_secretcode_vcs.sh`: self-checking regressions;
-  scripts that create temporary workspaces clean them automatically.
-- `prepare_exam_readmes.py`: regenerate the topic README quick-reference blocks.
-- `add_vcd_dumps.py`: add portable VCD capture to testbenches lacking VCD/VPD
-  dump calls.
-- `rocky-bridge.tasks.json`: reviewed task definitions used by the Windows to
-  Rocky WSL bridge.
+- VCS_USAGE.md：VCS 命令及 Rocky Linux 环境说明。
+- EXAM_REPORT_GUIDE.md：NM6008 报告大纲、Module 3 综合/门级流程和 Module 6 布局前置条件。
+- run_vcs_all.sh、run_sv_vcs.sh、run_test2_vcs.sh、run_missing_code_vcs.sh、run_secretcode_vcs.sh：自检回归脚本；会创建临时工作目录的脚本会自动清理。
+- prepare_exam_readmes.py：重新生成各练习目录的 README 速查区块。
+- add_vcd_dumps.py：为尚未记录波形的 testbench 增加可移植的 VCD 输出。
+- rocky-bridge.tasks.json：Windows 到 Rocky WSL 桥接工具使用的已审查任务定义。
 
-Use a test's `make clean` after capturing report artifacts. Do not commit VCS
-build outputs or restricted course library files.
+保存报告所需材料后，在对应练习目录运行 make clean。不要提交 VCS 编译产物或受限制的课程工艺库文件。

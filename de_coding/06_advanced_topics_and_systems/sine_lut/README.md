@@ -1,4 +1,4 @@
-# sine lut
+# 正弦查找表
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

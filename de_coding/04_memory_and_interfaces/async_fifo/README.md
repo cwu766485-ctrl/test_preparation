@@ -1,4 +1,4 @@
-# async fifo
+# 异步 FIFO
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

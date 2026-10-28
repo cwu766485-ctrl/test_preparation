@@ -1,9 +1,9 @@
-# rotate shifter
+# 循环移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `rotate shifter`，RTL 顶层/子模块为 `rotate_shifter`。 源文件说明：Rotate shifter. Advantage: preserves every bit by wrapping shifted bits around. Disadvantage: requires extra wraparound logic and special handling for zero. dir=1 rotates right;…
+**设计说明：**本题练习 `rotate shifter`，RTL 顶层/子模块为 `rotate_shifter`。 源文件说明：循环移位器通过回绕移出的位来保留全部数据位。缺点：需要额外回绕逻辑，并需特别处理移位量为 0。dir=1 右旋，dir=0 左旋。
 
 **RTL 文件：**`rotate_shifter.v`。
 

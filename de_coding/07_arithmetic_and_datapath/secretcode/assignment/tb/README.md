@@ -1,4 +1,4 @@
-# tb
+# TB 测试平台说明
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

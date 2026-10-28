@@ -4,7 +4,7 @@ tags:
   - Test2
   - 复习
   - 总览
-course: NM6008 Laboratory 2 - Digital IC Design
+course: NM6008 实验二：数字集成电路设计（NM6008 Laboratory 2 - Digital IC Design）
 exam: 2026-10-20（周二）13:30–16:30
 ---
 
@@ -37,8 +37,8 @@ exam: 2026-10-20（周二）13:30–16:30
 
 > [!warning] 规则没写清楚的地方，考前问老师
 > 能不能联网、能不能用 AI 工具，以老师说的为准。可以这样问：
-> *"For the practical part, are we allowed to use our own laptops and any AI tools, or only course materials?"*
-> *"Will the practical cover Module 6 / P&R? Do we need to run the full flow including synthesis and power?"*
+> *“实践部分允许使用自己的电脑和 AI 工具吗，还是只能使用课程资料？”*
+> *“实践部分会考 Module 6 / P&R 吗？是否需要完成包括综合和功耗分析在内的完整流程？”*
 
 ---
 

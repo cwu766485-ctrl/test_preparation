@@ -1,4 +1,4 @@
-# lfsr
+# 线性反馈移位寄存器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

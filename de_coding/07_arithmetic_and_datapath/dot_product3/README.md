@@ -1,29 +1,29 @@
-# Dot Product3
+# 三项点积
 
-RTL: `dot_product3.v`  
-Testbench: `tb_dot_product3.v`  
-Top module: `dot_product3`
+RTL 文件： `dot_product3.v`<br>
+TB 文件： `tb_dot_product3.v`<br>
+顶层模块： `dot_product3`
 
-## Exam commands (Linux / Rocky Linux)
+## 考试命令 (Linux / Rocky Linux)
 
-From this directory, compile and run with VCS:
+在当前目录运行以下命令，使用 VCS 编译并运行：
 
 ```sh
 make
 ```
 
-A successful self-check prints `PASS:`. Remove compiler and simulator outputs with:
+自检通过时会打印 PASS:。使用以下命令清除编译器和仿真器生成的文件：
 
 ```sh
 make clean
 ```
 
-If the Synopsys environment is not initialized in the exam lab, source the lab-provided setup script before running `make`.
+如果考场中的 Synopsys 环境尚未初始化，请先加载实验室提供的环境脚本，再运行 make。
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `dot product3`，RTL 顶层/子模块为 `dot_product3`。 源文件说明：Signed three-term dot product. START samples term zero; the next two clock edges sample terms one and two. DONE is a one-cycle pulse.
+**设计说明：**本题练习 `dot product3`，RTL 顶层/子模块为 `dot_product3`。 源文件说明：有符号三项点积。START 采样第 0 项，之后两个时钟沿分别采样第 1 项和第 2 项；DONE 输出一个周期的脉冲。
 
 **RTL 文件：**`dot_product3.v`。
 

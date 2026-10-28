@@ -1,4 +1,4 @@
-# pwm
+# 脉宽调制器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

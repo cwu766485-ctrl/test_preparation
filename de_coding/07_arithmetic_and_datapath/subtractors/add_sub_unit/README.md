@@ -1,9 +1,9 @@
-# add sub unit
+# 加减法单元
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `add sub unit`，RTL 顶层/子模块为 `add_sub_unit`。 源文件说明：Unified unsigned adder/subtractor. During subtraction, carry_out indicates no borrow. Advantage: reuses one adder for both operations and suits an ALU. Disadvantage: the control…
+**设计说明：**本题练习 `add sub unit`，RTL 顶层/子模块为 `add_sub_unit`。 源文件说明：统一无符号加减法单元，减法时 carry_out 表示没有借位。优点：加法和减法复用一个加法器，适合构成 ALU。缺点：控制逻辑和共享算术路径可能影响时序。
 
 **RTL 文件：**`add_sub_unit.v`。
 

@@ -1,4 +1,4 @@
-# barrel shifter
+# 桶形移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

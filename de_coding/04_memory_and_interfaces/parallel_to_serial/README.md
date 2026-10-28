@@ -1,4 +1,4 @@
-# parallel to serial
+# 并串转换器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

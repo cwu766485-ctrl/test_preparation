@@ -1,9 +1,9 @@
-# tb
+# TB 测试平台说明
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `tb`，RTL 顶层/子模块为 见 RTL 文件中的 module 声明。 源文件说明：Exhaust all 2^3 input combinations.
+**设计说明：**本题练习 `tb`，RTL 顶层/子模块为 见 RTL 文件中的 module 声明。 源文件说明：枚举 2^3 种输入组合，覆盖半加器和全加器的全部输入情况。
 
 **RTL 文件：**`adder_agent.sv`, `adder_driver.sv`, `adder_env.sv`, `adder_if.sv`, `adder_item.sv`, `adder_monitor.sv`, `adder_pkg.sv`, `adder_scoreboard.sv`, `adder_sequence.sv`, `adder_test.sv`。
 

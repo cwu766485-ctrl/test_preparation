@@ -1,21 +1,15 @@
-# Test2 question folders
+# Test2 题目目录
 
-The numbered folders contain the 29 exam-style RTL/TB examples. Open the local
-`README.md` first for the design summary, TB top, and VCS command; detailed
-explanations from the original practice notes remain beside the source files.
+编号目录中有 29 组考试风格的 RTL/TB 练习。进入具体题目文件夹后，先看其中的 README，了解设计、TB 顶层和 VCS 命令；详细讲解与源文件放在同一题目录中。
 
-For a normal question folder:
+一般题目运行方式：
 
-```sh
-cd de_coding/Test2/<question-folder>
+~~~sh
+cd de_coding/Test2/<题目文件夹>
 make test
 make clean
-```
+~~~
 
-Question 16 contains intentional bugs; `make test` checks that its benches detect
-them. For the full set, use `bash tools/run_test2_vcs.sh` from `de_coding/`.
-`17_可变位宽串行加法器/` is the closest match to the attached serial-adder
-report and has a detailed exam walkthrough.
+第 16 题故意包含错误实现；make test 用于确认 TB 能检测出这些错误。完整题集可从 de_coding/ 运行 bash tools/run_test2_vcs.sh。第 17 题“可变位宽串行加法器”与学长报告中的串行加法器题型最接近，并附有详细考试流程说明。
 
-The four-stage Design Vision and Module 6 Innovus reporting flow is documented
-in [`../tools/EXAM_REPORT_GUIDE.md`](../tools/EXAM_REPORT_GUIDE.md).
+Design Vision 四阶段流程和 Module 6 Innovus 报告步骤见[考试报告流程](../tools/EXAM_REPORT_GUIDE.md)。

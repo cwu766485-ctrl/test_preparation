@@ -1,9 +1,9 @@
-# pipelined divider
+# 流水线除法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `pipelined divider`，RTL 顶层/子模块为 `pipelined_divider`。 源文件说明：Fully pipelined unsigned restoring divider with one quotient-bit stage per bit. Advantage: accepts one input per cycle after pipeline fill. Disadvantage: uses WIDTH registered…
+**设计说明：**本题练习 `pipelined divider`，RTL 顶层/子模块为 `pipelined_divider`。 源文件说明：全流水无符号恢复余数除法器，每一位商对应一级流水。优点：流水线填满后每周期可接收一个输入。缺点：需要 WIDTH 级寄存器，面积开销较大。
 
 **RTL 文件：**`pipelined_divider.v`。
 

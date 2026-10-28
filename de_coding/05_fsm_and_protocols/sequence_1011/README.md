@@ -1,4 +1,4 @@
-# sequence 1011
+# 1011 序列检测器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

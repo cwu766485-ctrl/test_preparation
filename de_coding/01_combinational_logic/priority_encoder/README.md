@@ -1,4 +1,4 @@
-# priority encoder
+# 优先编码器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

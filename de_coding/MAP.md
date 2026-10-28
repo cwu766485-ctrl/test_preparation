@@ -1,4 +1,4 @@
-﻿# `de_coding/` 内容地图
+# `de_coding/` 内容地图
 
 这个目录按数字 IC 设计主题整理。每个练习小目录的 `README.md` 说明 RTL/TB 结构、VCS 入口和清理命令；报告写作/综合/门级仿真/Innovus 流程见 [`tools/EXAM_REPORT_GUIDE.md`](tools/EXAM_REPORT_GUIDE.md)。
 
@@ -17,9 +17,9 @@
 
 ## NM6008 重点实例
 
-- [Test2/17 可变位宽串行加法器](Test2/17_可变位宽串行加法器/README.md)：与附带学生 report 最接近，详细说明 IDLE/RUN、逐位全加器、TB、波形、综合和报告。
+- [Test2/17 可变位宽串行加法器](Test2/17_可变位宽串行加法器/README.md)：与附带的学长报告 最接近，详细说明 IDLE/RUN、逐位全加器、TB、波形、综合和报告。
 - [Module 5 有符号矩阵乘法器](07_arithmetic_and_datapath/nm6008_matrix_multiplier/README.md)：接口采用手册中的 `MatrixMultiplier`、`A/B[7:0]`、`OUT[16:0]` 和 `OUT_STROBE`。
-- [Secret-code number generator](07_arithmetic_and_datapath/secretcode/README.md)：说明题目发生器与旧 keypad password-lock 练习的区别；考试按题面用 [`assignment/`](07_arithmetic_and_datapath/secretcode/assignment/README.md)。
+- [Secret Code 数字发生器](07_arithmetic_and_datapath/secretcode/README.md)：说明题目发生器与旧 keypad password-lock 练习的区别；考试按题面用 [`assignment/`](07_arithmetic_and_datapath/secretcode/assignment/README.md)。
 - [考试报告与 Module 3/6 流程](tools/EXAM_REPORT_GUIDE.md)：波形、Design Vision、SDF 门级仿真、报告截图和 PDK 限制。
 
 ## Test2 题号速查

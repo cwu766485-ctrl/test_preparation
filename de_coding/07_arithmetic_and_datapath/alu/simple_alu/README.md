@@ -1,9 +1,9 @@
-# simple alu
+# 简易算术逻辑单元
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `simple alu`，RTL 顶层/子模块为 `simple_alu`。 源文件说明：Simple unsigned ALU. For subtraction, carry_out is 1 when no borrow occurred. Advantage: demonstrates shared add/sub/logic datapath control. Disadvantage: a single combinational…
+**设计说明：**本题练习 `simple alu`，RTL 顶层/子模块为 `simple_alu`。 源文件说明：无符号简易 ALU。减法时，carry_out=1 表示未发生借位。优点：展示加减和逻辑运算共用数据通路控制。缺点：单周期组合实现的关键路径可能较长。
 
 **RTL 文件：**`simple_alu.v`。
 

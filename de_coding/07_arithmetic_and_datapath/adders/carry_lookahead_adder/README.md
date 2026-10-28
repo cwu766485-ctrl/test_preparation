@@ -1,9 +1,9 @@
-# carry lookahead adder
+# 超前进位加法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `carry lookahead adder`，RTL 顶层/子模块为 `carry_lookahead_adder`。 源文件说明：Four-bit carry-lookahead adder. Advantage: computes carries in parallel and is faster than ripple carry. Disadvantage: extra generate/propagate logic increases area and wiring.
+**设计说明：**本题练习 `carry lookahead adder`，RTL 顶层/子模块为 `carry_lookahead_adder`。 源文件说明：四位超前进位加法器。优点：并行计算进位，比行波进位更快。缺点：产生/传递逻辑增加面积和布线。
 
 **RTL 文件：**`carry_lookahead_adder.v`。
 

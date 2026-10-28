@@ -1,4 +1,4 @@
-# glitch free clock mux
+# 无毛刺时钟多路选择器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

@@ -1,4 +1,4 @@
-# dff
+# D 触发器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

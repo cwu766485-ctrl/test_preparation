@@ -1,29 +1,29 @@
-# Serial Adder
+# 串行加法器
 
-RTL: `serial_adder.v`  
-Testbench: `tb_serial_adder.v`  
-Top module: `serial_adder`
+RTL 文件： `serial_adder.v`<br>
+TB 文件： `tb_serial_adder.v`<br>
+顶层模块： `serial_adder`
 
-## Exam commands (Linux / Rocky Linux)
+## 考试命令 (Linux / Rocky Linux)
 
-From this directory, compile and run with VCS:
+在当前目录运行以下命令，使用 VCS 编译并运行：
 
 ```sh
 make
 ```
 
-A successful self-check prints `PASS:`. Remove compiler and simulator outputs with:
+自检通过时会打印 PASS:。使用以下命令清除编译器和仿真器生成的文件：
 
 ```sh
 make clean
 ```
 
-If the Synopsys environment is not initialized in the exam lab, source the lab-provided setup script before running `make`.
+如果考场中的 Synopsys 环境尚未初始化，请先加载实验室提供的环境脚本，再运行 make。
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `serial adder`，RTL 顶层/子模块为 `serial_adder`。 源文件说明：Variable-width unsigned serial adder. Operands load in parallel, then one least-significant bit is added per cycle. SUM includes the final carry.
+**设计说明：**本题练习 `serial adder`，RTL 顶层/子模块为 `serial_adder`。 源文件说明：可变位宽无符号串行加法器。并行装入操作数后，每周期从最低位开始计算一位；SUM 包含最终进位。
 
 **RTL 文件：**`serial_adder.v`。
 

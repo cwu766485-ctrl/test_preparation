@@ -1,9 +1,9 @@
-# arithmetic shifter
+# 算术移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `arithmetic shifter`，RTL 顶层/子模块为 `arithmetic_shifter`。 源文件说明：Arithmetic right shifter. Advantage: preserves the sign bit for signed two's-complement data. Disadvantage: it is intended for signed right shifts, not unsigned data.
+**设计说明：**本题练习 `arithmetic shifter`，RTL 顶层/子模块为 `arithmetic_shifter`。 源文件说明：算术右移位器。优点：对有符号二进制补码数据右移时保留符号位。缺点：该模块用于有符号右移，不适用于无符号移位。
 
 **RTL 文件：**`arithmetic_shifter.v`。
 

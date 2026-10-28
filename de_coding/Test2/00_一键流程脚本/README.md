@@ -1,5 +1,3 @@
-# One-command course flow scripts
+# 课程流程一键脚本
 
-Read [`00_一键脚本说明.md`](00_一键脚本说明.md) before running `t2flow.sh`.
-The script automates repeated shell steps but still depends on the course
-Synopsys tools, libraries, scripts, and correct top/configuration names.
+运行 t2flow.sh 前，请先阅读 [00_一键脚本说明.md](00_一键脚本说明.md)。脚本可以自动执行重复的终端步骤，但仍依赖课程提供的 Synopsys 工具、工艺库、脚本，以及正确的顶层名称和配置。

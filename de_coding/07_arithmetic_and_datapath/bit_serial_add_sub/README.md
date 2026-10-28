@@ -1,29 +1,29 @@
-# Bit Serial Add Sub
+# 位串行加减法器
 
-RTL: `bit_serial_add_sub.v`  
-Testbench: `tb_bit_serial_add_sub.v`  
-Top module: `bit_serial_add_sub`
+RTL 文件： `bit_serial_add_sub.v`<br>
+TB 文件： `tb_bit_serial_add_sub.v`<br>
+顶层模块： `bit_serial_add_sub`
 
-## Exam commands (Linux / Rocky Linux)
+## 考试命令 (Linux / Rocky Linux)
 
-From this directory, compile and run with VCS:
+在当前目录运行以下命令，使用 VCS 编译并运行：
 
 ```sh
 make
 ```
 
-A successful self-check prints `PASS:`. Remove compiler and simulator outputs with:
+自检通过时会打印 PASS:。使用以下命令清除编译器和仿真器生成的文件：
 
 ```sh
 make clean
 ```
 
-If the Synopsys environment is not initialized in the exam lab, source the lab-provided setup script before running `make`.
+如果考场中的 Synopsys 环境尚未初始化，请先加载实验室提供的环境脚本，再运行 make。
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `bit serial add sub`，RTL 顶层/子模块为 `bit_serial_add_sub`。 源文件说明：Bit-serial unsigned adder/subtractor. SUB=0 adds; SUB=1 computes A-B. In subtract mode CARRY_OUT=1 means no borrow; 0 means borrow occurred.
+**设计说明：**本题练习 `bit serial add sub`，RTL 顶层/子模块为 `bit_serial_add_sub`。 源文件说明：无符号位串行加减法器。SUB=0 时计算 A+B，SUB=1 时计算 A-B。减法时 CARRY_OUT=1 表示没有借位，0 表示发生借位。
 
 **RTL 文件：**`bit_serial_add_sub.v`。
 

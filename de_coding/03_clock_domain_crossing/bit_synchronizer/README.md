@@ -1,9 +1,9 @@
-# bit synchronizer
+# 单比特同步器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `bit synchronizer`，RTL 顶层/子模块为 `bit_sync2`, `bit_sync2`。 源文件说明：fast clk to slow clk Persistent one-bit LEVEL only. Short pulses need an event CDC instead.
+**设计说明：**本题练习 `bit synchronizer`，RTL 顶层/子模块为 `bit_sync2`, `bit_sync2`。 源文件说明：用于慢时钟域的持续单比特电平同步；短脉冲应改用事件 CDC 电路传输。
 
 **RTL 文件：**`bit_synchronizer.sv`, `bit_synchronizer.v`。
 

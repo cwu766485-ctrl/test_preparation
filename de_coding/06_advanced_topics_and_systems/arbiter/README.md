@@ -1,9 +1,9 @@
-# arbiter
+# 仲裁器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `arbiter`，RTL 顶层/子模块为 `credit_qos_arbiter`, `credit_qos_arbiter`, `round_robin_arbiter`, `round_robin_arbiter`, `strict_priority_arbiter`, `strict_priority_arbiter`, `weighted_round_robin_arbiter`, `weighted_round_robin_arbiter`。 源文件说明：Credit-based QoS arbiter. Credits are replenished every REPLENISH_PERIOD cycles. A requester with available credit is selected in round-robin order, and one accepted grant…
+**设计说明：**本题练习 `arbiter`，RTL 顶层/子模块为 `credit_qos_arbiter`, `credit_qos_arbiter`, `round_robin_arbiter`, `round_robin_arbiter`, `strict_priority_arbiter`, `strict_priority_arbiter`, `weighted_round_robin_arbiter`, `weighted_round_robin_arbiter`。 源文件说明：基于额度的 QoS 仲裁器：每隔 REPLENISH_PERIOD 个周期补充额度；在额度充足的请求者中按轮询顺序授权，成功接受的授权会消耗相应额度。
 
 **RTL 文件：**`credit_qos_arbiter.sv`, `credit_qos_arbiter.v`, `round_robin_arbiter.sv`, `round_robin_arbiter.v`, `strict_priority_arbiter.sv`, `strict_priority_arbiter.v`, `weighted_round_robin_arbiter.sv`, `weighted_round_robin_arbiter.v`。
 

@@ -1,6 +1,6 @@
 # M6 Innovus 布局布线全流程（照着抄版）
 
-> Module 6：Layout of Matrix Multiplier（GF 22FDX，Cadence Innovus 20.12）
+> Module 6：矩阵乘法器布局布线（GF 22FDX，Cadence Innovus 20.12）
 > 根据 manual 第 3 节整理，加上 2026-10-15/16 两次实际上机踩过的坑。
 > **M6 不用写代码**：输入文件机房全给好了，你要做的是按顺序执行命令（或点 GUI）、看结果、截图、排查问题。
 
@@ -80,7 +80,7 @@ clearGlobalNets
 globalNetConnect vdd -type pgpin -pin VDD -inst *
 globalNetConnect gnd -type pgpin -pin VSS -inst *
 ```
-- GUI：Power → Connect Global Nets… → 填好后 Apply
+- 图形界面：Power（电源）→ Connect Global Nets…（连接全局网络）→ 填写完成后点击 Apply（应用）
 - **作用**：把所有单元的 VDD/VSS 引脚接到全局网络 vdd/gnd 上
 
 ## 第 3 步　Floorplan
@@ -89,7 +89,7 @@ getIoFlowFlag
 setIoFlowFlag 0
 floorPlan -site GF22_SST -d 1400 1400 150 150 150 150 -noSnapToGrid
 ```
-- GUI：Floorplan → Specify Floorplan…
+- 图形界面：Floorplan（布局规划）→ Specify Floorplan…（指定布局规划）
 - **含义**：芯片 1400 × 1400 µm，core 到芯片边缘四边各留 150 µm
 - **截图**：floorplan 后的视图
 
@@ -99,7 +99,7 @@ setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_sho
 
 addRing -nets {gnd vdd} -type core_rings -follow core -layer {top C2 bottom C2 left C1 right C1} -width {top 1.8 bottom 1.8 left 1.8 right 1.8} -spacing {top 1.8 bottom 1.8 left 1.8 right 1.8} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
 ```
-- GUI：Power → Power Planning → Add Ring…
+- 图形界面：Power（电源）→ Power Planning（电源规划）→ Add Ring…（添加电源环）
 - **含义**：在 core 外围加一圈 vdd/gnd 环；上下用 C2 层、左右用 C1 层，宽度、间距、偏移都是 1.8 µm
 - **截图**：电源环
 
@@ -108,7 +108,7 @@ addRing -nets {gnd vdd} -type core_rings -follow core -layer {top C2 bottom C2 l
 setSrouteMode -viaConnectToShape { noshape }
 sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { MET1(1) MET4(4) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { MET1(1) MET4(4) } -nets { gnd vdd } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { MET1(1) MET4(4) }
 ```
-- GUI：Route → Special Route…
+- 图形界面：Route（布线）→ Special Route…（特殊布线）
 - **作用**：把电源 pad 接到电源环上，并沿每一行标准单元生成电源轨（follow-pin rail）
 - manual 后面还有一串 `selectWire / editResize / editTrim`，是手动修剪几根线，坐标和具体设计有关，**直接用 `scripts/CHIP.tcl` 里的版本最稳**
 - **截图**：sroute 后的视图
@@ -144,7 +144,7 @@ setEndCapMode \
   -fitGap true
 addEndCap -prefix ENDCAP
 ```
-- GUI：Place → Physical Cell → Add End Cap…
+- 图形界面：Place（布局）→ Physical Cell（物理单元）→ Add End Cap…（添加端帽单元）
 - **作用**：每一行标准单元的两端放 end cap，满足阱的 tie-off 和阱延伸的 DRC 规则（这次加了约 20142 个）
 
 ## 第 8 步　标准单元布局（Placement）
@@ -152,7 +152,7 @@ addEndCap -prefix ENDCAP
 setPlaceMode -fp false
 placeDesign
 ```
-- GUI：Place → Place Standard Cell… → OK
+- 图形界面：Place（布局）→ Place Standard Cell…（布局标准单元）→ OK
 - **看到**：逻辑单元聚在 core 中间一小块（设计是 pad-limited，逻辑只有约 3275 µm²）
 - **截图**：布局后的视图
 
@@ -163,7 +163,7 @@ timeDesign -preCTS -idealClock -pathReports -drvReports -slackReports -numPaths 
 setOptMode -fixCap true -fixTran true -fixFanoutLoad false
 optDesign -preCTS
 ```
-- GUI：Timing → Report Timing…（Pre-CTS，Setup）；ECO → Optimize Design…
+- 图形界面：Timing（时序）→ Report Timing…（报告时序，CTS 前、Setup）；ECO → Optimize Design…（优化设计）
 - 结果在 `timingReports/Syn_MatrixMultiplier_IO_preCTS.summary`，看 Violating Paths 是不是 0
 - **pre-CTS 不能修 hold**，只能在 post-CTS 修
 
@@ -173,7 +173,7 @@ create_ccopt_clock_tree_spec
 ccopt_design -prefix cts
 ctd_win -id ctd_window          ;# 打开 Clock Tree Debugger 窗口看时钟树（no_gui 模式下不要执行这句）
 ```
-- GUI：Clock → CCOpt Clock Tree Debugger
+- 图形界面：Clock（时钟）→ CCOpt Clock Tree Debugger（时钟树调试器）
 - **截图**：Clock Tree Debugger
 
 **9c. CTS 之后：查 setup 和 hold，修 hold**
@@ -190,7 +190,7 @@ optDesign -postCTS -hold
 ```
 source ./scripts/Route.tcl
 ```
-- GUI：Route → NanoRoute → Route… → OK
+- 图形界面：Route（布线）→ NanoRoute（纳米布线）→ Route…（开始布线）→ OK（确认）
 - **截图**：布线结果、NanoRoute summary（DRC 和 antenna 应为 0）
 
 **布线后 signoff 时序（manual p.19–20）：**
@@ -210,7 +210,7 @@ getFillerMode -quiet
 addFiller -cell HDBSLT20_FILL64 HDBSLT20_FILL32 HDBSLT20_FILL16 HDBSLT20_FILL8 HDBSLT20_FILL4 HDBSLT20_FILL3 HDBSLT20_FILL2 HDBSLT20_FILL1 -prefix FILLER -doDRC
 source ./scripts/Route.tcl
 ```
-- GUI：Place → Physical Cell → Add Filler…（勾 Do DRC）
+- 图形界面：Place（布局）→ Physical Cell（物理单元）→ Add Filler…（添加填充单元，勾选 Do DRC）
 - **作用**：把行里剩下的空位填满，保证阱的连续性，避免 DRC 违例
 - **截图**：加 filler 后的版图
 
@@ -228,7 +228,7 @@ verifyConnectivity       ;# 应为 0
 ```
 streamOut Syn_MatrixMultiplier_IO.gds2 -mapFile GDS/22FDSOI_10M_2Mx_5Cx_1Jx_2Qx_LB_edi2gds_colored.layermap -libName DesignLib -structureName Syn_MatrixMultiplier_IO -units 1000 -mode ALL
 ```
-- GUI：File → Save → GDS/OASIS…
+- 图形界面：File（文件）→ Save（保存）→ GDS/OASIS…（导出 GDS/OASIS）
 
 ## 第 13 步　寄生参数提取（SPEF）✅ 2026-10-16 已跑通
 ```
@@ -236,7 +236,7 @@ setExtractRCMode -reset      ;# 关键！清掉第 10 步留下的 postRoute + s
 extractRC                    ;# 看到 PreRoute RC Extraction DONE 才算成功
 rcOut -spef Syn_MatrixMultiplier_IO.spef -rc_corner typical
 ```
-- GUI：Timing → Extract RC… → 勾 SPEF → corner 选 typical → OK
+- 图形界面：Timing（时序）→ Extract RC…（提取 RC）→ 勾选 SPEF → corner 选择 typical → OK（确认）
 - **为什么要先 reset**：第 10 步按 manual 设了 `-engine postRoute -effortLevel signoff`，这个设置会一直生效。rcOut 要先做提取，用 signoff 档就会调用 Quantus，机房缺 GLIBC 起不来，于是报 `IMPDC-495`。查当前设置：`getExtractRCMode -effortLevel`
 - postRoute 的各档都不行：signoff 报 GLIBC；medium 报 NREX-94；low 报 IMPEXT-6192（没有 captable，不允许）。**只有 preRoute 能用**
 - manual 写的是 `-rc_corner cap`，但现在的 MMMC 里**没有叫 cap 的 corner**（报 IMPEXT-2900），要用 `typical`
@@ -249,7 +249,7 @@ all_hold_analysis_views
 all_setup_analysis_views
 write_sdf Syn_MatrixMultiplier_IO_rc.sdf
 ```
-- GUI：Timing → Write SDF…
+- 图形界面：Timing（时序）→ Write SDF…（写出 SDF）
 - 必须在第 13 步 extractRC 成功之后做，这样 SDF 里的 INTERCONNECT 延迟才来自提取的 RC（约 12782 条）
 - 这次用了新文件名 `_rc.sdf`，没有覆盖旧的 SDF
 - 想看用了提取 RC 后的时序：`report_timing -max_paths 1`（setup +87.311 ns）和 `report_timing -early -max_paths 1`（hold +0.422 ns）。不要用 `timeDesign -postRoute`，它会强制走 postRoute 提取，又报 NREX-94
@@ -258,7 +258,7 @@ write_sdf Syn_MatrixMultiplier_IO_rc.sdf
 ```
 saveNetlist output_netlist/Syn_MatrixMultiplier_IO.v
 ```
-- GUI：File → Save → Netlist…
+- 图形界面：File（文件）→ Save（保存）→ Netlist…（导出网表）
 
 ## 存档（方便以后恢复）
 ```

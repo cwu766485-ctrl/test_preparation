@@ -1,9 +1,9 @@
-# barrel shifter
+# 桶形移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `barrel shifter`，RTL 顶层/子模块为 `barrel_shifter`。 源文件说明：Barrel shifter. Advantage: shifts by any amount in one combinational operation. Disadvantage: a large MUX network can consume area and affect timing. dir=1 shifts right; dir=0…
+**设计说明：**本题练习 `barrel shifter`，RTL 顶层/子模块为 `barrel_shifter`。 源文件说明：桶形移位器可在一个组合操作中完成任意位数移位。缺点：多级 MUX 网络可能增加面积并影响时序。dir=1 右移，dir=0 左移。
 
 **RTL 文件：**`barrel_shifter.v`。
 

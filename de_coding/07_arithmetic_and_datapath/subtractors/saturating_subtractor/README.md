@@ -1,9 +1,9 @@
-# saturating subtractor
+# 饱和减法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `saturating subtractor`，RTL 顶层/子模块为 `saturating_subtractor`。 源文件说明：Unsigned saturating subtractor. Advantage: avoids wraparound when a smaller value is subtracted from zero. Disadvantage: requires an additional comparison and is unsigned here.
+**设计说明：**本题练习 `saturating subtractor`，RTL 顶层/子模块为 `saturating_subtractor`。 源文件说明：无符号饱和减法器。优点：从较小值中相减时避免结果回绕。缺点：需要额外比较逻辑，且本实现只处理无符号数。
 
 **RTL 文件：**`saturating_subtractor.v`。
 

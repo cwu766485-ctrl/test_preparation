@@ -1,9 +1,9 @@
-# radix4 divider
+# 基 4 除法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `radix4 divider`，RTL 顶层/子模块为 `radix4_divider`。 源文件说明：Iterative unsigned radix-4 restoring divider. Advantage: selects two quotient bits per iteration, taking about WIDTH/2 iterations. Disadvantage: must compare against and subtract…
+**设计说明：**本题练习 `radix4 divider`，RTL 顶层/子模块为 `radix4_divider`。 源文件说明：迭代式无符号基 4 恢复余数除法器。优点：每次迭代选择两位商，约需 WIDTH/2 次迭代。缺点：每步需要多种倍数比较和减法逻辑。
 
 **RTL 文件：**`radix4_divider.v`。
 

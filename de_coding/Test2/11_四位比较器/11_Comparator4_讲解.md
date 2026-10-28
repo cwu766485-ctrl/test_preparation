@@ -45,9 +45,9 @@ assign LT = (A <  B);
 
 > 下面的命令已经把名字换好了，**整段复制**即可。
 > 练习用的文件夹叫 `~/NM6008/Test2_Comparator4`；考试时换成老师要求的文件夹名。
-> 完整的原理和报错速查见 [上机操作清单](<../../NM6008 上机操作清单（Test 2 照着做）.md>) 和 [前端设计流程学习手册](<../../NM6008 前端设计流程学习手册（Module 3–5）.md>)。A number generator circuit is required to generate a sequence of 4 digits to find the secret code to ctivte a relay Assume each digit is represented by 3 binary bits to represent  number v (0,1 ...7)
-The seccret code is present to 4digit value v1v2v3v4,if the value generate by Mi is equal to vi,then Mi outputs a signal logic oi to the logic block.All 4 digits must match for the relay o open .Note that the input code is not directly accesible by Mi
-It is important to note that the main objective of the circuit is to generate 4 numbers that correspond to the secret code.
+> 完整的原理和报错速查见 [上机操作清单](<../../NM6008 上机操作清单（Test 2 照着做）.md>) 和 [前端设计流程学习手册](<../../NM6008 前端设计流程学习手册（Module 3–5）.md>)。题目要求设计一个数字发生器，连续产生 4 个数字以寻找可打开继电器的秘密码。每个数字用 3 位二进制表示，取值 v∈{0,1,…,7}。
+秘密码预设为四位值 v1v2v3v4。如果 Mi 产生的数字等于对应的 vi，Mi 就向逻辑模块输出 oi=1。四位全部匹配时继电器才打开。注意：Mi 无法直接读取完整的输入密码。
+本电路的主要目标是依次产生与秘密码匹配的 4 个数字。
 module Comparator (
     input  wire [2:0] A,
     input  wire [2:0] B,
@@ -82,7 +82,7 @@ module Test2 (
 
 endmodule
 
-what is wrong with my verilog?how to modify it ?and write the testbench for me. the testing code is 0107 for my student ID
+请指出以下 Verilog 代码的问题并说明如何修改，同时为其编写 testbench。按我的学生 ID，测试密码为 0107。
 
 > [!tip] 代码怎么放进机房电脑
 > 在 Mac 上打开本文件夹里的 `.v` 文件 → 全选复制 → 切到 TigerVNC → 在机房的 gedit 里粘贴 → **Ctrl+S 保存**。
@@ -103,7 +103,7 @@ what is wrong with my verilog?how to modify it ?and write the testbench for me. 
 | 功耗 `pa.tcl` | `FullAdder` | `Comparator4`，instance 写 `Comparator4_tb/U1` |
 
 ### 第 0 步：建练习文件夹（随便一个终端）
-write the correct verilog code for me correspond with this testbench
+请根据此 testbench 写出正确的 Verilog 代码。
 在 Linux 文件管理器进入 `~/NM6008`，选中整个 `Module3` 文件夹 → **Ctrl+C → Ctrl+V** → 将新副本重命名为 `Test2_Comparator4`。如果已经有可用的练习副本，就直接使用它；后续终端路径中的工程名相应替换。
 
 > 如果你的 Module3 里文件夹叫 `RTL`（大写），下面所有 `rtl` 都换成 `RTL`。先 `ls` 看清楚。

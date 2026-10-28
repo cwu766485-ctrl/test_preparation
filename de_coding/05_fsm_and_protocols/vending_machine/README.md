@@ -1,29 +1,29 @@
-# Vending Machine
+# 自动售货机控制器
 
-RTL: `vending_machine.v`  
-Testbench: `tb_vending_machine.v`  
-Top module: `vending_machine`
+RTL 文件： `vending_machine.v`<br>
+TB 文件： `tb_vending_machine.v`<br>
+顶层模块： `vending_machine`
 
-## Exam commands (Linux / Rocky Linux)
+## 考试命令 (Linux / Rocky Linux)
 
-From this directory, compile and run with VCS:
+在当前目录运行以下命令，使用 VCS 编译并运行：
 
 ```sh
 make
 ```
 
-A successful self-check prints `PASS:`. Remove compiler and simulator outputs with:
+自检通过时会打印 PASS:。使用以下命令清除编译器和仿真器生成的文件：
 
 ```sh
 make clean
 ```
 
-If the Synopsys environment is not initialized in the exam lab, source the lab-provided setup script before running `make`.
+如果考场中的 Synopsys 环境尚未初始化，请先加载实验室提供的环境脚本，再运行 make。
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `vending machine`，RTL 顶层/子模块为 `vending_machine`。 源文件说明：Simple 15-unit vending machine. Accepts one 5-unit or 10-unit coin per cycle. DISPENSE and CHANGE are one-cycle outputs; credit clears on vend.
+**设计说明：**本题练习 `vending machine`，RTL 顶层/子模块为 `vending_machine`。 源文件说明：商品价格为 15 单位的简易售货机。每周期接收一枚 5 单位或 10 单位硬币；DISPENSE 和 CHANGE 只输出一个周期，出货后余额清零。
 
 **RTL 文件：**`vending_machine.v`。
 

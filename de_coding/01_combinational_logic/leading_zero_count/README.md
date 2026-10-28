@@ -1,4 +1,4 @@
-# leading zero count
+# 前导零计数
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

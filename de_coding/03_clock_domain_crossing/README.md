@@ -1,9 +1,5 @@
-# 03 · Clock-domain crossing
+# 03 · 跨时钟域
 
-Find bit and multi-bit synchronizers, Gray pointers, pulse/interrupt CDC, reset
-synchronizers, and glitch-free clock switching in the child folders. A CDC
-testbench checks functional sequencing; simulation does not prove metastability
-safety or replace a synchronizer/CDC review.
+子目录包含单比特和多比特同步器、格雷码指针、脉冲/中断 CDC、复位同步器和无毛刺时钟切换电路。CDC 测试平台检查功能时序；仿真不能证明亚稳态安全，也不能替代同步器和 CDC 结构审查。
 
-Run `make test` and `make clean` inside the chosen exercise. Synthesis/report
-guidance is in [`../tools/EXAM_REPORT_GUIDE.md`](../tools/EXAM_REPORT_GUIDE.md).
+在目标练习目录运行 make test 和 make clean。综合与报告说明见[考试报告流程](../tools/EXAM_REPORT_GUIDE.md)。

@@ -1,25 +1,28 @@
-# Counter modes
+# 计数器模式
 
-This directory contains three counters with distinct wrap behavior:
+本目录提供三种回绕行为不同的计数器：
 
-- `cnt_up`: increments while `en` is high. With `WIDTH=4`, it counts 0 through 15, then wraps to 0.
-- `cnt_down`: decrements while `en` is high. With `WIDTH=4`, it counts 0, 15, 14, ..., then wraps from 0 to 15.
-- `cnt_modN`: increments while `en` is high and wraps from `N-1` to 0. For `N=10`, its sequence is 0 through 9. This differs from a 4-bit up-counter, which continues through 15.
+- cnt_up：en=1 时递增。WIDTH=4 时按 0 到 15 计数，再回到 0。
+- cnt_down：en=1 时递减。WIDTH=4 时按 0、15、14……计数，从 0 回绕到 15。
+- cnt_modN：en=1 时递增，并在 N-1 后回到 0。N=10 时计数范围为 0 到 9；4 位向上计数器会继续计到 15。
 
-All three use an active-low asynchronous reset. `cnt_modN.tc` is high whenever the current count equals `N-1`, including while the counter is disabled.
+因此，mod-N 模式相当于把回绕点设为 N-1 的向上计数器；只有 N=2^WIDTH 时，才与自然溢出的 WIDTH 位向上计数器序列相同。
 
-## Run the VCS tests
+三个计数器都采用低有效异步复位。cnt_modN.tc 在当前计数等于 N-1 时为高，即使计数器暂停也保持该状态。
 
-From this directory in Linux/WSL with VCS available:
+## 运行 VCS 测试
 
-```sh
-make          # compile and run all three self-checking testbenches
+在已配置 VCS 的 Linux/WSL 终端中，于本目录运行：
+
+~~~sh
+make
 make test_cnt_up
 make test_cnt_down
 make test_cnt_modN
-make clean    # remove generated build files
-```
+make clean
+~~~
 
+本目录的 RTL、TB 和考试命令速查见下方。
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 

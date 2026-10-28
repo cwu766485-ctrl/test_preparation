@@ -1,4 +1,4 @@
-# popcount
+# 人口计数器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

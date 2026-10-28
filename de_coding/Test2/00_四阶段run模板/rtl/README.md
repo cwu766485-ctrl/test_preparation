@@ -1,17 +1,11 @@
-# T3 · Gate-level VCS simulation
+# T3 · 门级 VCS 仿真
 
-This folder runs the synthesized netlist with the matching standard-cell model
-list and SDF. Do not mix files from different synthesis runs. The script copies
-`Syn_<TOP>.v/.sdf`, the behavioral testbench, optional vector file, and SDC into
-this folder; `library.f` must name the correct course models.
+此目录用匹配的标准单元模型和 SDF 对综合网表进行仿真。不要混用不同综合批次生成的文件。脚本会把 Syn_<TOP>.v/.sdf、行为级 testbench、可选向量文件和 SDC 复制到此目录；library.f 必须列出正确的课程模型。
 
-Run in the course C shell:
+在课程 C shell 中运行：
 
-```csh
+~~~csh
 csh run
-```
+~~~
 
-Review `compile_gate.log` and `sim_gate.log` for successful SDF annotation and
-the same functional checks as T1. Confirm the new `inter.vpd` exists before T4.
-Use the TB's actual DUT instance in `$sdf_annotate` and in the root
-`exam_config.csh`.
+检查 compile_gate.log 和 sim_gate.log，确认 SDF 成功标注，并执行与 T1 相同的功能检查。进入 T4 前确认 inter.vpd 已生成。$sdf_annotate 中的 DUT 实例路径必须与实际 testbench 一致，并同步检查 exam_config.csh。

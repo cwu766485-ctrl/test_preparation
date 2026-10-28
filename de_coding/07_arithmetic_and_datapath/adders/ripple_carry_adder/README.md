@@ -1,9 +1,9 @@
-# ripple carry adder
+# 行波进位加法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `ripple carry adder`，RTL 顶层/子模块为 `ripple_carry_adder`。 源文件说明：Ripple-carry adder. Advantage: simple, small, and easy to verify. Disadvantage: worst-case delay grows linearly with WIDTH.
+**设计说明：**本题练习 `ripple carry adder`，RTL 顶层/子模块为 `ripple_carry_adder`。 源文件说明：行波进位加法器结构简单、面积小且易于验证。缺点：最坏情况下的延迟随 WIDTH 线性增长。
 
 **RTL 文件：**`ripple_carry_adder.v`。
 

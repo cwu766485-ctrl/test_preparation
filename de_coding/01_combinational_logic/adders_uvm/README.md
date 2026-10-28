@@ -1,17 +1,17 @@
-# Minimal UVM Adder Testbench
+# UVM 加法器测试平台示例
 
-This package verifies both a 1-bit half adder and a 1-bit full adder.
+本示例验证 1 位半加器和 1 位全加器。
 
-## UVM data path
+## UVM 数据流
 
-sequence -> sequencer -> driver -> interface -> DUT
-                                      |
-                                      v
-scoreboard <- analysis_port <- monitor
+sequence → sequencer → driver → interface → DUT
+                                      │
+                                      ↓
+scoreboard ← analysis_port ← monitor
 
-## Directory
+## 目录结构
 
-```text
+~~~text
 day3_uvm_adder/
 ├── Makefile
 ├── filelist.f
@@ -29,36 +29,36 @@ day3_uvm_adder/
     ├── adder_env.sv
     ├── adder_test.sv
     └── tb_top.sv
-```
+~~~
 
-## Run with Synopsys VCS
+## 使用 Synopsys VCS 运行
 
-```bash
+~~~sh
 make clean
 make run
-```
+~~~
 
-Check result:
+检查结果：
 
-```bash
+~~~sh
 grep -E "UVM_(ERROR|FATAL)|SB_REPORT" sim.log
-```
+~~~
 
-Expected scoreboard result:
+预期记分板结果：
 
-```text
+~~~text
 PASS=8 FAIL=0
-```
+~~~
 
-Open waveform:
+打开波形：
 
-```bash
+~~~sh
 make verdi
-```
+~~~
 
-Watch:
+建议观察以下信号：
 
-```text
+~~~text
 tb_top.clk
 tb_top.vif.a
 tb_top.vif.b
@@ -67,20 +67,10 @@ tb_top.vif.half_sum
 tb_top.vif.half_cout
 tb_top.vif.full_sum
 tb_top.vif.full_cout
-```
+~~~
 
-## Useful UVM coding-practice targets
+## UVM 编码练习重点
 
-The most common interview-sized blocks are usually:
-- sequence_item / transaction
-- constraint / randomization
-- sequence
-- driver
-- monitor
-- scoreboard / reference model
-- interface / clocking block
-- analysis_port / analysis_imp
-- SVA
-- functional coverage
+常见的 UVM 小题包括 sequence_item/transaction、约束与随机化、sequence、driver、monitor、scoreboard/reference model、interface/clocking block、analysis_port/analysis_imp、SVA 和功能覆盖率。
 
-A full UVM environment from scratch is possible, but usually too large for a short hand-coding question.
+从零编写完整 UVM 环境内容较多，通常不适合短时间手写题。

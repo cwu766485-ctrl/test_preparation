@@ -1,9 +1,9 @@
-# moore fsm
+# Moore 状态机
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `moore fsm`，RTL 顶层/子模块为 `traffic_fsm`, `traffic_fsm`。 源文件说明：Verilog-2005 enum constants replace the SystemVerilog typedef.
+**设计说明：**本题练习 `moore fsm`，RTL 顶层/子模块为 `traffic_fsm`, `traffic_fsm`。 源文件说明：使用 Verilog-2005 枚举常量替代 SystemVerilog typedef。
 
 **RTL 文件：**`traffic_fsm_moore.sv`, `traffic_fsm_moore.v`。
 

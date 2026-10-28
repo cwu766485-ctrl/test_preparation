@@ -1,9 +1,9 @@
-# interrupt cdc
+# 中断跨时钟域传输
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `interrupt cdc`，RTL 顶层/子模块为 `interrupt_cdc`, `interrupt_cdc`。 源文件说明：Event interrupt crossing. Source accepts irq_event only while irq_ready=1; the destination latches it until software/peripheral logic asserts irq_clear. Multiple accepted events…
+**设计说明：**本题练习 `interrupt cdc`，RTL 顶层/子模块为 `interrupt_cdc`, `interrupt_cdc`。 源文件说明：中断事件跨时钟域传输：源端仅在 irq_ready=1 时接受 irq_event；目的端锁存事件，直到外设或软件逻辑发出 irq_clear。
 
 **RTL 文件：**`interrupt_cdc.sv`, `interrupt_cdc.v`。
 

@@ -1,9 +1,9 @@
-# password lock
+# 密码锁状态机
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `password lock`，RTL 顶层/子模块为 `password_lock`。 源文件说明：Unlock after the key sequence 1, 3, 5, 7. Three incorrect keys latch alarm.
+**设计说明：**本题练习 `password lock`，RTL 顶层/子模块为 `password_lock`。 源文件说明：依次输入 1、3、5、7 后解锁；错误输入累计三次后报警锁存。
 
 **RTL 文件：**`password_lock.v`。
 

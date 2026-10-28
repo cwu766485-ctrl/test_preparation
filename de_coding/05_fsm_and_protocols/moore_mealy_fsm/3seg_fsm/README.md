@@ -1,9 +1,9 @@
-# 3seg fsm
+# 三段式状态机
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `3seg fsm`，RTL 顶层/子模块为 `fsm_3seg`, `fsm_3seg`。 源文件说明：Verilog-2005 enum constants replace the SystemVerilog typedef.
+**设计说明：**本题练习 `3seg fsm`，RTL 顶层/子模块为 `fsm_3seg`, `fsm_3seg`。 源文件说明：使用 Verilog-2005 枚举常量替代 SystemVerilog typedef。
 
 **RTL 文件：**`fsm_3seg.sv`, `fsm_3seg.v`。
 

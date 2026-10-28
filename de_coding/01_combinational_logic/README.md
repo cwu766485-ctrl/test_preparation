@@ -1,11 +1,7 @@
-# 01 · Combinational logic
+# 01 · 组合逻辑
 
-Use this section for arithmetic without state, muxes, comparators, parity,
-population count, leading-zero count, shifters, and priority encoders. Each
-exercise directory has its own RTL/TB notes and, where applicable, Makefile.
+本目录收录无状态算术电路、多路选择器、比较器、奇偶校验、人口计数、前导零计数、移位器和优先编码器。各练习子目录提供 RTL/TB 说明；适用的目录也提供 Makefile。
 
-In the selected exercise folder run `make test`, inspect its self-checking
-summary and VCD, then run `make clean`. For the adders UVM example, use its
-folder's `make run` target and UVM report summary.
+在选定的练习目录运行 make test，查看自检结果和 VCD 波形，再运行 make clean。加法器 UVM 示例使用本目录 Makefile 的 make run 目标，并查看 UVM 报告中的自检汇总。
 
-Synthesis and report steps are in [`../tools/EXAM_REPORT_GUIDE.md`](../tools/EXAM_REPORT_GUIDE.md).
+综合与报告步骤见[考试报告流程](../tools/EXAM_REPORT_GUIDE.md)。

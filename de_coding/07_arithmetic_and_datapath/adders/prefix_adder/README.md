@@ -1,9 +1,9 @@
-# prefix adder
+# 前缀加法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `prefix adder`，RTL 顶层/子模块为 `prefix_adder`, `prefix_adder_stage`。 源文件说明：Parameterized Kogge-Stone prefix adder. Advantage: computes carries with logarithmic logic depth. Disadvantage: the dense prefix network uses more wiring and area than ripple…
+**设计说明：**本题练习 `prefix adder`，RTL 顶层/子模块为 `prefix_adder`, `prefix_adder_stage`。 源文件说明：参数化 Kogge-Stone 前缀加法器。优点：进位逻辑深度为对数级。缺点：密集的前缀网络比行波进位加法器需要更多布线和面积。
 
 **RTL 文件：**`prefix_adder.v`, `prefix_adder_stage.v`。
 

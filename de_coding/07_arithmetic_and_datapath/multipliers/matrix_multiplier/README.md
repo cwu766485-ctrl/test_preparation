@@ -1,9 +1,9 @@
-# matrix multiplier
+# 矩阵乘法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `matrix multiplier`，RTL 顶层/子模块为 `matrix_multiplier`。 源文件说明：Iterative signed NxN matrix multiplier using one shared multiply-accumulate datapath. Advantage: hardware area is low because one product is computed per cycle. Disadvantage: a…
+**设计说明：**本题练习 `matrix multiplier`，RTL 顶层/子模块为 `matrix_multiplier`。 源文件说明：迭代式有符号 N×N 矩阵乘法器，共用一套乘加数据通路。优点：每周期只计算一个乘积，硬件面积较小。缺点：计算过程需要多个周期。
 
 **RTL 文件：**`matrix_multiplier.v`。
 

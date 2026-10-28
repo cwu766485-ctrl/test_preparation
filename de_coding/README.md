@@ -1,35 +1,29 @@
-# Digital IC RTL Coding Practice
+# 数字芯片 RTL 练习目录
 
-`de_coding` is organized into seven topic folders, plus `Test2` exam-style
-problems and shared VCS helpers. See [`MAP.md`](MAP.md) for the directory map,
-module topics, quick search commands, and simulation entry points.
+de_coding 按七类主题组织，另含 Test2 考试型练习和共用 VCS 工具。目录结构、主题索引、搜索方式和仿真入口见 [MAP.md](MAP.md)。
 
-For the NM6008 report workflow (behavioral waveform, Module 3 Design Vision,
-gate-level simulation, and the Module 6 PDK-dependent Innovus steps), see
-[`tools/EXAM_REPORT_GUIDE.md`](tools/EXAM_REPORT_GUIDE.md). The assignment
-number-generator version of secretcode is under
-[`07_arithmetic_and_datapath/secretcode/assignment/`](07_arithmetic_and_datapath/secretcode/assignment/README.md).
+NM6008 报告流程（行为仿真波形、Module 3 Design Vision 综合、门级仿真，以及依赖 PDK 的 Module 6 Innovus 步骤）见[考试报告流程](tools/EXAM_REPORT_GUIDE.md)。NM6008 Secret Code 数字发生器题目的实现位于 [assignment/README.md](07_arithmetic_and_datapath/secretcode/assignment/README.md)。
 
-## Sections
+## 目录主题
 
-| Folder | Topics |
+| 文件夹 | 内容 |
 |---|---|
-| `01_combinational_logic` | Adders, muxes, encoders, comparators, parity, popcount, shifters |
-| `02_sequential_logic` | Registers, counters, sequence detection, edge detection, dividers |
-| `03_clock_domain_crossing` | Synchronizers, pulse/handshake CDC, Gray pointers, reset and clock switching |
-| `04_memory_and_interfaces` | RAM, FIFOs, and serial/parallel interfaces |
-| `05_fsm_and_protocols` | Moore/Mealy FSMs, handshakes, PWM, debounce, vending machine |
-| `06_advanced_topics_and_systems` | Arbiter, CRC, LFSR, clock dividers, display scan, LUT, UART |
-| `07_arithmetic_and_datapath` | Arithmetic, serial datapaths, matrix/dot-product, multiplier/divider, ALU |
+| 01_combinational_logic | 加法器、多路选择器、编码器、比较器、奇偶校验、人口计数、移位器 |
+| 02_sequential_logic | 寄存器、计数器、序列检测、边沿检测、分频器 |
+| 03_clock_domain_crossing | 同步器、脉冲/握手 CDC、格雷码指针、复位与时钟切换 |
+| 04_memory_and_interfaces | RAM、FIFO、串并转换接口 |
+| 05_fsm_and_protocols | Moore/Mealy 状态机、握手、PWM、去抖、售货机 |
+| 06_advanced_topics_and_systems | 仲裁器、CRC、LFSR、分频器、数码管扫描、查找表、UART |
+| 07_arithmetic_and_datapath | 算术运算、串行数据通路、矩阵/点积、乘除法器、ALU |
 
-## Run and clean
+## 运行与清理
 
-Most exercise directories provide a plain `Makefile`:
+大多数练习目录都提供普通 Makefile。在 Linux/WSL 终端进入对应目录后运行：
 
-```sh
+~~~sh
 cd 02_sequential_logic/counters
 make
 make clean
-```
+~~~
 
-For Linux/WSL setup and the whole-project VCS runs, see [`tools/VCS_USAGE.md`](tools/VCS_USAGE.md).
+Linux/WSL 环境准备和整库 VCS 回归命令见 [VCS 使用说明](tools/VCS_USAGE.md)。

@@ -1,9 +1,9 @@
-# pipelined multiplier
+# 流水线乘法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `pipelined multiplier`，RTL 顶层/子模块为 `multiplier_adder_tree`, `pipelined_multiplier`。 源文件说明：Recursively pair rows into a balanced, combinational multiplier adder tree.
+**设计说明：**本题练习 `pipelined multiplier`，RTL 顶层/子模块为 `multiplier_adder_tree`, `pipelined_multiplier`。 源文件说明：通过递归配对部分积行，构造平衡的组合乘法器加法树。
 
 **RTL 文件：**`multiplier_adder_tree.v`, `pipelined_multiplier.v`。
 

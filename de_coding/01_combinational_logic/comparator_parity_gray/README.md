@@ -1,4 +1,4 @@
-# comparator parity gray
+# 比较器、奇偶校验与格雷码
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

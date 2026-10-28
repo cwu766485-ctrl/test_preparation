@@ -1,9 +1,9 @@
-# half adder
+# 半加器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `half adder`，RTL 顶层/子模块为 `half_adder`。 源文件说明：Half adder. Advantage: minimum area and one-level combinational logic. Disadvantage: cannot accept a carry-in; only suitable for the least bit.
+**设计说明：**本题练习 `half adder`，RTL 顶层/子模块为 `half_adder`。 源文件说明：半加器面积小、组合逻辑层数少。缺点：没有进位输入，只适用于最低位等不需要接收进位的场景。
 
 **RTL 文件：**`half_adder.v`。
 

@@ -1,9 +1,9 @@
-# restoring divider
+# 恢复余数除法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `restoring divider`，RTL 顶层/子模块为 `restoring_divider`。 源文件说明：Iterative unsigned restoring divider. Advantage: simple, deterministic WIDTH-cycle implementation. Disadvantage: one quotient bit per cycle and relatively low throughput.
+**设计说明：**本题练习 `restoring divider`，RTL 顶层/子模块为 `restoring_divider`。 源文件说明：迭代式无符号恢复余数除法器。优点：实现简单，固定运行 WIDTH 个周期。缺点：每周期只产生一位商，吞吐率较低。
 
 **RTL 文件：**`restoring_divider.v`。
 

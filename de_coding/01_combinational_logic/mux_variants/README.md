@@ -1,4 +1,4 @@
-# mux variants
+# 多路选择器变体
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

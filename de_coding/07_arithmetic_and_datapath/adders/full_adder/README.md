@@ -1,9 +1,9 @@
-# full adder
+# 全加器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `full adder`，RTL 顶层/子模块为 `full_adder`。 源文件说明：Full adder. Advantage: handles a carry-in and is the basic building block of adders. Disadvantage: a chain of full adders has carry propagation delay.
+**设计说明：**本题练习 `full adder`，RTL 顶层/子模块为 `full_adder`。 源文件说明：全加器可处理进位输入，是加法器的基本单元。缺点：多个全加器串联时会产生进位传播延迟。
 
 **RTL 文件：**`full_adder.v`。
 

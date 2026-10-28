@@ -1,9 +1,9 @@
-# array multiplier
+# 阵列乘法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `array multiplier`，RTL 顶层/子模块为 `array_multiplier`。 源文件说明：Unsigned array multiplier built from partial products and a full-adder array. Advantage: the repeated adder cells form a regular, easy-to-inspect structure. Disadvantage: it uses…
+**设计说明：**本题练习 `array multiplier`，RTL 顶层/子模块为 `array_multiplier`。 源文件说明：无符号阵列乘法器由部分积和全加器阵列构成。优点：加法单元重复排列，结构规则、便于检查。缺点：阵列规模会随位宽增大。
 
 **RTL 文件：**`array_multiplier.v`。
 

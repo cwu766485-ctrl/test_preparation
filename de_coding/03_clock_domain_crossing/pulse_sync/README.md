@@ -1,9 +1,9 @@
-# pulse sync
+# 脉冲跨时钟域传输
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `pulse sync`，RTL 顶层/子模块为 `event_counter_cdc`, `event_counter_cdc`, `pulse_handshake`, `pulse_handshake`, `pulse_sync`, `pulse_sync`。 源文件说明：Counts source events modulo 2**COUNT_W, then transfers a Gray count. dst_delta reports how many events arrived since the previous destination sample. No event is lost IF fewer…
+**设计说明：**本题练习 `pulse sync`，RTL 顶层/子模块为 `event_counter_cdc`, `event_counter_cdc`, `pulse_handshake`, `pulse_handshake`, `pulse_sync`, `pulse_sync`。 源文件说明：源时钟域按 COUNT_W 位宽对事件计数，再传输格雷码计数值；dst_delta 表示自上次采样以来到达的事件数。事件速率满足设计约束时不会丢失事件。
 
 **RTL 文件：**`event_counter_cdc.sv`, `event_counter_cdc.v`, `pulse_handshake.sv`, `pulse_handshake.v`, `pulse_sync.sv`, `pulse_sync.v`。
 

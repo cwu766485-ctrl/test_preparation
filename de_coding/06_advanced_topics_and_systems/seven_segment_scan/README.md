@@ -1,4 +1,4 @@
-# seven segment scan
+# 七段数码管扫描
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

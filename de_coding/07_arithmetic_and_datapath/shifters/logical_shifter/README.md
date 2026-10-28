@@ -1,9 +1,9 @@
-# logical shifter
+# 逻辑移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `logical shifter`，RTL 顶层/子模块为 `logical_shifter`。 源文件说明：Logical left/right shifter. Advantage: simple combinational implementation for unsigned data. Disadvantage: right shift always inserts zeros and cannot preserve sign. dir=1 shifts…
+**设计说明：**本题练习 `logical shifter`，RTL 顶层/子模块为 `logical_shifter`。 源文件说明：逻辑左右移位器适合无符号数据的简单组合移位。缺点：右移始终补 0，不能保留符号。dir=1 右移，dir=0 左移。
 
 **RTL 文件：**`logical_shifter.v`。
 

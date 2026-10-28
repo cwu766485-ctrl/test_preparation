@@ -1,61 +1,23 @@
-# NM6008 Module 5 signed matrix multiplier
+# NM6008 Module 5 有符号矩阵乘法器
 
-This example follows the manual's 2-term signed dot product:
-`[A1 A0] x [B1 B0]^T = A1*B1 + A0*B0`. The single signed 8-bit `A` and `B`
-buses carry one operand pair per cycle. `START` starts a continuous stream;
-`OUT_STROBE` marks each valid 17-bit signed result.
+本例实现课程手册中的两项有符号点积：[A1 A0] × [B1 B0]ᵀ = A1×B1 + A0×B0。单条有符号 8 位 A、B 总线每周期输入一对操作数。START 启动连续数据流；OUT_STROBE 标记有效的 17 位有符号结果。
 
-## RTL and testbench
+## RTL 与测试平台
 
-- `MatrixMultiplier.v`: asynchronous active-low reset, IDLE/FIRST/SECOND
-  controller, one registered 16-bit signed product, sign extension into a
-  17-bit accumulator, and one-cycle output strobe. The control phases represent
-  the manual's EN1 (register product), EN2 (accumulate), and EN3 (publish).
-- `MatrixMultiplier_tb.sv`: reads signed operand rows from `InputVector.txt`,
-  drives the two operands in sequence, and checks positive, negative, zero,
-  and full-range boundary cases. It also checks the strobe pulse and reset.
-- `InputVector.txt`: each row is `A1 B1 A0 B0`, decimal signed values from
-  -128 through 127.
+- MatrixMultiplier.v：低有效异步复位；IDLE/FIRST/SECOND 控制器；寄存一个 16 位有符号乘积，将其符号扩展后累加到 17 位累加器，并输出一个周期的结果有效脉冲。三个控制阶段分别对应手册中的 EN1（寄存乘积）、EN2（累加）和 EN3（发布结果）。
+- MatrixMultiplier_tb.sv：从 InputVector.txt 读取有符号操作数，按顺序驱动两组输入，并检查正数、负数、零值、全范围边界、脉冲宽度和复位。
+- InputVector.txt：每行按 A1 B1 A0 B0 排列，使用十进制有符号数，范围为 -128 到 127。
 
-## Exam commands
+## 考试命令
 
-In the configured Linux/WSL VCS shell:
+在已经配置 VCS 的 Linux/WSL 终端运行：
 
-```sh
+~~~sh
 cd de_coding/07_arithmetic_and_datapath/nm6008_matrix_multiplier
 make test
 make clean
-```
+~~~
 
-`make test` leaves `build/MatrixMultiplier.vcd` and logs for DVE/report
-screenshots. Use `make gui` to open DVE; add `CLK`, `NRST`, `START`, `A`, `B`,
-`dut.state`, `dut.product_q`, `OUT`, and `OUT_STROBE` to the wave view.
+make test 会在 build/ 中保留 MatrixMultiplier.vcd 和日志，供 DVE 查看或报告截图使用。运行 make gui 可打开 DVE；把 CLK、NRST、START、A、B、dut.state、dut.product_q、OUT 和 OUT_STROBE 加入波形窗口。
 
-For a student-style report (waveform, RTL explanation, schematic, mapped cell
-and timing reports, gate-level simulation, and the Module 6 layout deliverables),
-follow [`../../tools/EXAM_REPORT_GUIDE.md`](../../tools/EXAM_REPORT_GUIDE.md).
-Module 6 Innovus is PDK-dependent: use the course's GF22 IO wrapper, LEF/lib,
-pad files, `.globals`, `.io`, and lab setup. Do not reuse floorplan dimensions
-or pad coordinates with another process kit.
-
-<!-- BEGIN generated exam quick reference -->
-## RTL、TB 与考试命令
-
-**设计说明：**按 Module 5 接口把两组有符号 8 位操作数串行送入，计算 A1*B1+A0*B0，使用 17 位符号扩展并以 OUT_STROBE 标记结果。
-
-**RTL 文件：**`MatrixMultiplier.v`。
-
-**TB 文件：**
-- `MatrixMultiplier_tb.sv`（顶层 `MatrixMultiplier_tb`）：驱动输入并在仿真中检查 DUT 输出/时序。
-
-**VCS：**
-
-```sh
-make test
-make clean
-```
-
-`make test` 在 VCS 下编译并运行；波形和日志位于 `build/`，交报告前先保存所需截图再执行 `make clean`。
-
-综合、门级仿真、波形和报告写作步骤见[考试报告流程](../../tools/EXAM_REPORT_GUIDE.md)。
-<!-- END generated exam quick reference -->
+报告可包含波形、RTL 说明、原理图、映射单元和时序报告、门级仿真，以及 Module 6 布局交付物。具体步骤见[考试报告流程](../../tools/EXAM_REPORT_GUIDE.md)。Module 6 Innovus 依赖 PDK；需使用课程提供的 GF22 IO wrapper、LEF/lib、pad 文件、.globals、.io 和实验室环境。不可把其他工艺库的 floorplan 尺寸或 pad 坐标照搬过来。

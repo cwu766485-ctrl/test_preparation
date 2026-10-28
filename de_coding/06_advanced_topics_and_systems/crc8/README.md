@@ -1,4 +1,4 @@
-# crc8
+# CRC-8 循环冗余校验
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

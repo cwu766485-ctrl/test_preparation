@@ -1,9 +1,9 @@
-# funnel shifter
+# 漏斗移位器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `funnel shifter`，RTL 顶层/子模块为 `funnel_shifter`。 源文件说明：Funnel shifter. Advantage: shifts across a concatenated double-width input. Disadvantage: requires two source words and wider routing. dir=1 selects the low half after a right…
+**设计说明：**本题练习 `funnel shifter`，RTL 顶层/子模块为 `funnel_shifter`。 源文件说明：漏斗移位器可跨拼接后的双倍宽度输入移位。缺点：需要两个数据字并增加布线宽度。dir=1 时右移并选取低半部分。
 
 **RTL 文件：**`funnel_shifter.v`。
 

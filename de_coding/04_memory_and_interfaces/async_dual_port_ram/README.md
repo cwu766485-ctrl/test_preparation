@@ -1,4 +1,4 @@
-# async dual port ram
+# 异步双端口 RAM
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令

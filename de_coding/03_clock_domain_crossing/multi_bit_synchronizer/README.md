@@ -1,9 +1,9 @@
-# multi bit synchronizer
+# 多比特同步器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `multi bit synchronizer`，RTL 顶层/子模块为 `multi_bit_synchronizer`, `multi_bit_synchronizer`。 源文件说明：Bundled-data four-phase handshake for occasional multi-bit transfers.
+**设计说明：**本题练习 `multi bit synchronizer`，RTL 顶层/子模块为 `multi_bit_synchronizer`, `multi_bit_synchronizer`。 源文件说明：用于低频多比特数据传输的 bundled-data 四阶段握手同步器。
 
 **RTL 文件：**`multi_bit_synchronizer.sv`, `multi_bit_synchronizer.v`。
 

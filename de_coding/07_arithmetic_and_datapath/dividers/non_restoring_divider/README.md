@@ -1,9 +1,9 @@
-# non restoring divider
+# 非恢复余数除法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `non restoring divider`，RTL 顶层/子模块为 `non_restoring_divider`。 源文件说明：Iterative unsigned non-restoring divider. Advantage: keeps a signed partial remainder and avoids restoring it after every step. Disadvantage: requires signed remainder control and…
+**设计说明：**本题练习 `non restoring divider`，RTL 顶层/子模块为 `non_restoring_divider`。 源文件说明：迭代式无符号非恢复余数除法器。优点：保留有符号部分余数，避免每步后恢复余数。缺点：部分余数控制需要处理符号。
 
 **RTL 文件：**`non_restoring_divider.v`。
 

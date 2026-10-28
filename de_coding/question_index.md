@@ -1,21 +1,27 @@
-# Q1-Q40 index
+# Q1–Q40 题目索引
 
-## 01 Combinational Logic
-Q1 Adders; Q2 MUX; Q3 Priority Encoder; Q4 Comparator; Q5 Parity; Q6 Binary/Gray; Q7 Popcount; Q8 Bit Reverse; Q9 Leading Zero Count; Q10 Barrel Shifter.
+## 01 组合逻辑
 
-## 02 Sequential Logic
-Q11 DFF; Q12 Mod-N and Up/Down Counter; Q13 Shift Registers; Q14 Edge Detector; Q15 Sequence Detector 101; Q16 Even Divider; Q17 Odd Divider; Q18 Glitch-Free Clock Mux.
+Q1 加法器；Q2 多路选择器；Q3 优先编码器；Q4 比较器；Q5 奇偶校验；Q6 二进制/格雷码转换；Q7 人口计数；Q8 位反转；Q9 前导零计数；Q10 桶形移位器。
 
-## 03 Clock Domain Crossing
-Q19 2-FF Synchronizer; Q20 Pulse Transfer; Q21 Handshake CDC; Q22 Gray Pointer Synchronization.
+## 02 时序逻辑
 
-## 04 Memory and Interfaces
-Q23 Asynchronous Dual-Port RAM; Q24 Asynchronous FIFO; Q25 Serial-to-Parallel; Q26 Parallel-to-Serial; Q27 Synchronous FIFO.
+Q11 D 触发器；Q12 mod-N 与向上/向下计数器；Q13 移位寄存器；Q14 边沿检测器；Q15 101 序列检测器；Q16 偶数分频器；Q17 奇数分频器；Q18 无毛刺时钟多路选择器。
 
-## 05 FSM and Protocols
-Q28 Moore/Mealy FSM; Q29 Sequence Detector 1011; Q30 Request/Acknowledge Handshake; Q31 PWM; Q32 Pulse Width Measurement; Q33 Debounce.
+## 03 跨时钟域
 
-## 06 Advanced and Systems
-Q34 LFSR; Q35 Arbiter; Q36 CRC-8; Q37 Seven-Segment Scan; Q38 Sine/Cosine LUT; Q39 Clock Dividers; Q40 UART RX 8N1.
+Q19 双触发器同步器；Q20 脉冲传输；Q21 握手 CDC；Q22 格雷码指针同步。
 
-`missing_rtl.sv` files contain the additional reference implementations added during this reorganization. Existing day directories contain the original exercises and their testbenches.
+## 04 存储器与接口
+
+Q23 异步双端口 RAM；Q24 异步 FIFO；Q25 串并转换；Q26 并串转换；Q27 同步 FIFO。
+
+## 05 状态机与协议
+
+Q28 Moore/Mealy 状态机；Q29 1011 序列检测器；Q30 请求/应答握手；Q31 PWM；Q32 脉宽测量；Q33 去抖。
+
+## 06 进阶主题与系统
+
+Q34 LFSR；Q35 仲裁器；Q36 CRC-8；Q37 七段数码管扫描；Q38 正弦/余弦查找表；Q39 时钟分频器；Q40 UART RX 8N1。
+
+missing_rtl.sv 文件包含本次整理时补充的参考实现。原有练习目录保留原题及对应 testbench。

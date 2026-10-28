@@ -1,20 +1,11 @@
-# T2 · Design Vision synthesis
+# T2 · Design Vision 综合
 
-Put only synthesizable RTL in `sources/`; the `Synthesis/run` script copies the
-files named by the root `exam_config.csh` and writes `scripts/ReadVerilogFiles.tcl`.
-Before running, rename the top Tcl to `scripts/<TOP>.tcl`, make
-`scripts/run_topdown.tcl` source it, check the top name and `MyDefaults.con`
-constraints, and preserve the course GF22 setup/library files.
+只把可综合 RTL 放入 sources/。Synthesis/run 脚本会复制上级 exam_config.csh 中列出的文件，并生成 scripts/ReadVerilogFiles.tcl。运行前，将顶层 Tcl 文件改名为 scripts/<TOP>.tcl；让 scripts/run_topdown.tcl 调用它；核对顶层名称、MyDefaults.con 约束，并保留课程提供的 GF22 配置和工艺库文件。
 
-Run inside the course C shell:
+在课程 C shell 中运行：
 
-```csh
+~~~csh
 csh run
-```
+~~~
 
-Inspect `logs/run_exam_syn.log`, `logs/report.rpt`, and `netlist/Syn_<TOP>.v`,
-`.sdf`, and `.sdc` if emitted. Confirm mapped library cells, area, timing/slack,
-and power report; open the mapped top in Design Vision Schematic View and save
-a screenshot. If the batch Tcl is incompatible with the installed release, run
-the same `scripts/run_topdown.tcl` from Design Vision GUI as described in the
-[report guide](../../../tools/EXAM_REPORT_GUIDE.md).
+检查 logs/run_exam_syn.log、logs/report.rpt，以及可能生成的 netlist/Syn_<TOP>.v、.sdf 和 .sdc。确认映射到工艺库单元，并检查面积、时序/裕量和功耗报告；在 Design Vision 的 Schematic View 中打开映射后的顶层并保存截图。如果批处理 Tcl 与机房软件版本不兼容，可按[考试报告流程](../../../tools/EXAM_REPORT_GUIDE.md)从 Design Vision 图形界面执行 scripts/run_topdown.tcl。

@@ -1,9 +1,9 @@
-# carry select adder
+# 选择进位加法器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `carry select adder`，RTL 顶层/子模块为 `carry_select_adder`。 源文件说明：Carry-select adder. Advantage: calculates both carry cases in parallel for lower delay. Disadvantage: duplicates adders, so area and power are higher.
+**设计说明：**本题练习 `carry select adder`，RTL 顶层/子模块为 `carry_select_adder`。 源文件说明：选择进位加法器。优点：并行计算两种进位情况下的结果，可降低延迟。缺点：复制加法器会增加面积和功耗。
 
 **RTL 文件：**`carry_select_adder.v`。
 

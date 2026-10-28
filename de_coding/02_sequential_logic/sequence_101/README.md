@@ -1,9 +1,9 @@
-# sequence 101
+# 101 序列检测器
 
 <!-- BEGIN generated exam quick reference -->
 ## RTL、TB 与考试命令
 
-**设计说明：**本题练习 `sequence 101`，RTL 顶层/子模块为 `seq_detect_101`, `seq_detect_101`。 源文件说明：Verilog-2005 enum constants replace the SystemVerilog typedef.
+**设计说明：**本题练习 `sequence 101`，RTL 顶层/子模块为 `seq_detect_101`, `seq_detect_101`。 源文件说明：使用 Verilog-2005 枚举常量替代 SystemVerilog typedef。
 
 **RTL 文件：**`sequence_101.sv`, `sequence_101.v`。
 
