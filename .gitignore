@@ -1,0 +1,24 @@
+# Synopsys simulator/build products
+simv
+simv.daidir/
+csrc/
+DVEfiles/
+*.vpd
+*.vcd
+*.fsdb
+*.key
+ucli.key
+vcs.log
+*.log
+# synthesis outputs (generated inside lab)
+synth/netlist/
+synth/logs/
+synth/.synopsys_dc.setup
+synth/common_setup_gf22.tcl
+synth/synopsys_linux*_cshrc
+# libraries and licensed content
+library.f
+*.db
+*.lib
+*.lef
+*.gds
