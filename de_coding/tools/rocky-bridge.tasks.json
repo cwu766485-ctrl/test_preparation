@@ -1,0 +1,56 @@
+﻿{
+  "defaultDistro": "Rocky-8.10",
+  "workingDirectory": "/mnt/e/Desktop/ic_de_dv/foundation/de_coding",
+  "tasks": {
+    "toolchain-preflight": {
+      "description": "Check Rocky Linux VCS, license, and Verilog conversion tool availability for de_coding.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && printf 'Linux: ' && uname -r && printf '\\nVCS: ' && (command -v vcs || true) && vcs -ID && printf '\\nMake: ' && command -v make && printf '\\nLicense: %s\\n' \"${SNPSLMD_LICENSE_FILE:-unset}\""]
+    },
+    "vcs-all": {
+      "description": "Run every generated per-module Verilog-2005 smoke test in Rocky Linux with VCS and save a summary.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_vcs_all.sh"]
+    },
+    "vcs-retry-failures": {
+      "description": "Retry modules marked failed in the saved VCS summary and update their results.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/retry_vcs_failures.sh"]
+    },
+    "vcs-makefile-check": {
+      "description": "Check plain Makefile targets for the sync FIFO and priority encoder using VCS.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/04_memory_and_interfaces/sync_fifo && make test_sync_fifo && make clean && cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/01_combinational_logic/priority_encoder && make test_prio_encoder && make test_tb_prio_encoder && make clean"]
+    },
+    "vcs-counters": {
+      "description": "Run self-checking VCS testbenches for up, down, and mod-N counters, then clean generated build files.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/02_sequential_logic/counters && make test; status=$?; cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/02_sequential_logic/counters && make clean; clean_status=$?; if [ $status -ne 0 ]; then exit $status; else exit $clean_status; fi"]
+    },
+    "vcs-missing-code-suite": {
+      "description": "Run VCS self-checking testbenches for the newly implemented missing exam exercises, then clean every exercise build directory.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_missing_code_vcs.sh"]
+    },
+    "vcs-test2": {
+      "description": "Compile and run all Test2 Verilog testbenches using VCS in isolated temporary directories.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_test2_vcs.sh"]
+    },
+    "vcs-sv": {
+      "description": "Compile and run all non-UVM SystemVerilog source variants against sibling testbenches in isolated temporary directories.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_sv_vcs.sh"]
+    },
+    "vcs-uvm": {
+      "description": "Run and clean the adders_uvm VCS/UVM regression, requiring 8 passes and no UVM errors.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding/01_combinational_logic/adders_uvm && make run; status=$?; if [ $status -eq 0 ] && grep -q 'PASS=8 FAIL=0' sim.log && ! grep -Eq '^UVM_(ERROR|FATAL)[[:space:]]+[^:]|^UVM_(ERROR|FATAL)[[:space:]]*:[[:space:]]*[1-9]' sim.log; then result=0; else result=1; fi; grep -E 'UVM_(ERROR|FATAL)|SB_REPORT' sim.log 2>/dev/null || true; make clean; clean_status=$?; if [ $result -ne 0 ]; then exit $result; else exit $clean_status; fi"]
+    },
+    "vcs-secretcode": {
+      "description": "Run behavioral and synthesized secretcode self-checking testbenches in isolated temporary directories.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_secretcode_vcs.sh"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+// AABB: A and B are each 8-bit hexadecimal values.
+0000
+0001
+0101
+1234
+55AA
+FFFF
+8001
+7F7F

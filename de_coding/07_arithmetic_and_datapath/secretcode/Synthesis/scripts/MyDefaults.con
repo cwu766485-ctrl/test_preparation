@@ -1,0 +1,94 @@
+# The script is designed for teaching purpose
+# --------------------------------------------------------------------
+# Version | Programmer                 | Date       | Remark
+# --------------------------------------------------------------------
+# V1      | Dr Kwen-Siong Chong        | 31/07/2013 | Initial version
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# | Main Function |
+# -----------------------------------------------------------------
+# Default Constraint File For AMS 0.35um CMOS process
+ 
+
+#### ----------------------------------------------------
+#### | Define clock or virtual clock for the modules
+#### ----------------------------------------------------
+
+#### Define clock variables
+set CLK_PERIOD 20
+set FIX_DELAY 10
+set CLK_SKEW [expr ($CLK_PERIOD * 0.05)] 
+set INPUT_DELAY [expr ($CLK_PERIOD * 0.15)]
+set OUTPUT_DELAY [expr ($CLK_PERIOD * 0.15)]
+
+## Create real clock if clock port is found 
+#if {[sizeof_collection [get_ports CLK]] > 0} {
+#   set CLK_PORT CLK   
+#   create_clock -period $CLK_PERIOD CLK 
+#}
+
+## Create virtual clock if clock port is not found 
+#if {[sizeof_collection [get_ports CLK]] == 0} {
+#   set CLK_PORT VCLK
+#   create_clock -period $CLK_PERIOD VCLK
+#}
+
+## Apply default timing constraints for modules 
+#set_input_delay $INPUT_DELAY -max -clock $CLK_PORT [remove_from_collection [all_inputs] $CLK_PORT]
+#set_output_delay $OUTPUT_DELAY -max -clock $CLK_PORT [all_outputs]
+#set_clock_uncertainty -setup $CLK_SKEW $CLK_PORT
+#set_clock_uncertainty -hold $CLK_SKEW $CLK_PORT
+
+#### ---------------------------------------------------------
+#### | Define Design Environment
+#### | Basic Design Environment includes 
+#### | (1) set_operating_conidtions
+#### | (2) set_wire_load_model
+#### | (3) set_drive
+#### | (4) set_driving_cell
+#### | (5) set_fanout_load
+#### | (6) set_min_library
+#### ---------------------------------------------------------
+
+#### Define variables relavent to GF 22nm CMOS Library
+
+set DRIVE_CELL HDBSLT20_INV_2
+set DRIVE_PIN {X}
+set OUTPUT_LOAD [load_of gf22nsdvlogl20hdl116a_TT_0P90V_0P00V_0P00V_0P00V_25C/HDBSLT20_INV_2/A]
+set MAX_OUTPUT_LOAD [expr ($OUTPUT_LOAD * 4)] 
+set MAX_FANOUT_LOAD 8
+set WIRELOAD_MODEL ZeroWLM
+
+## (1) set_operating_condition
+## Default setting is used -- no setup is required for this library
+## Operating Condition Name : TT_0P90V_0P00V_0P00V_0P00V_25C
+## Library : gf22nsdvlogl20hdl116a_TT_0P90V_0P00V_0P00V_0P00V_25C
+## Process :   1
+## Temperature :  25.00
+## Voltage :   0.90
+
+## (2) set_wire_load_model
+## Automatic selection has been enabled; see >> set auto_wire_load_selection "true"
+## Options avaliable: wl_A0_B0, wl_A2_B1, wl_A3_B2, wl_A4_B4, wl_A5_B8 and zero-wire-load-model
+set_wire_load_model -name $WIRELOAD_MODEL 
+
+
+## (3) and (4) set_drive and set_driving_cell and loading conditions
+set_driving_cell -lib_cell $DRIVE_CELL -pin $DRIVE_PIN [all_inputs]
+ 
+## For a clock, set infinite drive strength
+if {[sizeof_collection [get_ports CLK]] > 0} {
+   set_drive 0 CLK      
+}
+
+set_max_capacitance $MAX_OUTPUT_LOAD [all_outputs]
+set_load $MAX_OUTPUT_LOAD [all_outputs]
+
+## (5) set_fanout_load
+set_fanout_load $MAX_FANOUT_LOAD [all_outputs] 
+
+## (6) set_min_library 
+## This information may be missing or is not required 
+ 
+puts "RM-Info: Completed My Default script [info script]\n"
+

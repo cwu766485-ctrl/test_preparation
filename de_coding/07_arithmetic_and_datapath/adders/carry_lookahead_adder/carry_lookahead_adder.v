@@ -1,0 +1,32 @@
+// Four-bit carry-lookahead adder.
+// Advantage: computes carries in parallel and is faster than ripple carry.
+// Disadvantage: extra generate/propagate logic increases area and wiring.
+module carry_lookahead_adder (
+    input  wire [3:0] a,
+    input  wire [3:0] b,
+    input  wire       cin,
+    output wire [3:0] sum,
+    output wire       cout
+);
+    wire [3:0] p;
+    wire [3:0] g;
+    wire c1;
+    wire c2;
+    wire c3;
+    wire c4;
+
+    assign p    = a ^ b;
+    assign g    = a & b;
+    assign c1 = g[0] | (p[0] & cin);
+    assign c2 = g[1] | (p[1] & g[0]) | (p[1] & p[0] & cin);
+    assign c3 = g[2] | (p[2] & g[1]) | (p[2] & p[1] & g[0]) |
+                (p[2] & p[1] & p[0] & cin);
+    assign c4 = g[3] | (p[3] & g[2]) | (p[3] & p[2] & g[1]) |
+                (p[3] & p[2] & p[1] & g[0]) |
+                (p[3] & p[2] & p[1] & p[0] & cin);
+    assign sum[0] = p[0] ^ cin;
+    assign sum[1] = p[1] ^ c1;
+    assign sum[2] = p[2] ^ c2;
+    assign sum[3] = p[3] ^ c3;
+    assign cout   = c4;
+endmodule

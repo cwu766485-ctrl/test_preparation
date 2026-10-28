@@ -1,0 +1,18 @@
+# Generated per-directory VCS targets; run make or make test_<module>.
+VCS ?= vcs
+VCS_FLAGS ?= -full64 -v2005 -timescale=1ns/1ps
+ROOT := $(abspath .)
+BUILD := build
+TOPS := arithmetic_shifter
+TEST_TARGETS := test_arithmetic_shifter
+
+.PHONY: all test clean $(TEST_TARGETS)
+all: test
+test: $(TEST_TARGETS)
+
+test_arithmetic_shifter:
+	@mkdir -p $(BUILD)/arithmetic_shifter
+	cd $(BUILD)/arithmetic_shifter && $(VCS) $(VCS_FLAGS) -top tb_arithmetic_shifter_smoke $(ROOT)/arithmetic_shifter.v $(ROOT)/tb_arithmetic_shifter_smoke.v -o simv && ./simv > run.log 2>&1; status=$$?; cat run.log; test $$status -eq 0 && ! grep -q '^FAIL:' run.log
+
+clean:
+	rm -rf $(BUILD)
