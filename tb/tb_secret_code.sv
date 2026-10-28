@@ -114,12 +114,7 @@ module tb_secret_code;
         secret_code = 12'o0004; activate = 1'b1;
         @(posedge clk); #1; check_state(12'd0, 1'b1, 1'b0);
         @(negedge clk); activate = 1'b0;
-        repeat (4) begin
-            @(posedge clk); #1;
-            check_state(12'(checked_cycles * 0 + 1), 1'b1, 1'b0);
-            // See separate restart trace below; do not alter DUT.
-            break;
-        end
+        @(posedge clk); #1; check_state(12'd1, 1'b1, 1'b0);
         // candidate is 1 now; advance through 2,3,4, then latch.
         @(posedge clk); #1; check_state(12'd2, 1'b1, 1'b0);
         @(posedge clk); #1; check_state(12'd3, 1'b1, 1'b0);
