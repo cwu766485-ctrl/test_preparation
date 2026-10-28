@@ -1,0 +1,238 @@
+NM6008 MOCK TEST 3 — 2026 Module 3 + Module 6 OPERATION GUIDE
+===================================================================
+NAME: Sequential 2x2 Matrix Multiplier
+TOP: matrix_mul_2x2
+CLOCK: 10ns (explicit requirement in supplied Mock Test 3)
+SCOPE: RTL, self-check TB, synthesis/timing, power, report.
+OUT OF SCOPE: physical layout/CTS/routing/DRC/LVS; Module6 is optional.
+All paths below assume clone under ~/Downloads/test_preparation.
+
+IMPORTANT: Nothing here proves Synopsys/PDK availability or EDA PASS.
+Use the actual teacher-supplied legal process libraries and setup scripts.
+Do NOT upload .db, .lib, GF22 models, license, or private course files.
+
+A. FIRST CLONE / EVERY UPDATE (normal shell)
+--------------------------------------------
+# On the FIRST usage:
+cd ~/Downloads
+git clone https://github.com/cwu766485-ctrl/test_preparation.git
+cd test_preparation
+
+# Thereafter:
+cd ~/Downloads/test_preparation
+git status
+git pull --ff-only origin main
+git log -1 --oneline
+
+# Enter THIS exam problem:
+cd ~/Downloads/test_preparation/nm6008_exam/mock3_sequential_matrix_mul_2x2
+pwd
+find . -maxdepth 3 -type f | sort
+
+B. MODULE 3 SEC 2.1: RTL BEHAVIORAL SIMULATION (VCS / DVE)
+---------------------------------------------------------
+# Find the actual VCS lab environment script; paths differ by machine:
+find ~/NM6008 -name synopsys_linux_vP_2019_cshrc 2>/dev/null
+# From problem root:
+csh
+source /ACTUAL/LAB/PATH/synopsys_linux_vP_2019_cshrc
+
+vcs -full64 -sverilog -debug_access+all -top tb_matrix_mul_2x2 \
+  tb/tb_matrix_mul_2x2.sv rtl/matrix_mul_2x2.v \
+  -o simv -l vcs_compile.log
+
+./simv -l rtl_sim.log
+grep -nE 'PASS ALL|FAIL|TIMEOUT|Error' rtl_sim.log
+./simv -gui
+
+PASS: no $fatal, full self-checking suite completes, final PASS ALL.
+Testcases: normal [19 22; 43 50], zero, identity, maximum
+130050, change input while busy, ignore start while busy,
+asynchronous reset, exactly eight calculation cycles, done pulse,
+and 120 pseudo-random testcases.
+
+DVE: navigate to tb_matrix_mul_2x2 hierarchy. Select
+clk, rst_n, start, A_flat, B_flat, C00, C01, C10, C11, busy,
+done; right-click Add to Waves -> New Wave View; Start/Continue.
+Save waveform screenshots for edge 0, edges 1-8 and done pulse,
+maximum input case, reset while busy. The TB also dumps
+matrix_mul_2x2_rtl.vcd for offline wave inspection.
+Note: the TB waveform is not an SDF timing waveform.
+
+C. MODULE 3 SEC 2.2: DESIGN VISION / DESIGN COMPILER (GF22)
+-----------------------------------------------------------
+# In problem root:
+mkdir -p synth/netlist synth/logs
+# Provide authorized local laboratory files under synth:
+#   .synopsys_dc.setup
+#   common_setup_gf22.tcl
+# Modify actual library search, target_library/link_library and
+# other paths as needed based on the laboratory's working Module3
+# sample (DO NOT copy proprietary library assets to GitHub).
+# Important: if UID-3 says your_library.db not found, fix link setup.
+
+csh
+source /ACTUAL/LAB/PATH/synopsys_linux_vR_2020_cshrc
+cd synth
+design_vision &
+# GUI: File -> Execute Script ->
+#   ../scripts/run_topdown.tcl
+# For a batch run instead (in synth directory):
+dc_shell-xg-t -f ../scripts/run_topdown.tcl
+
+# Current directory MUST be synth:
+# ReadVerilogFiles.tcl calls read_verilog ../rtl/matrix_mul_2x2.v
+# run_topdown.tcl calls ../scripts/ReadVerilogFiles.tcl and
+# ../scripts/MatrixMul2x2.tcl.
+# Constrain clock:
+# create_clock -name clk -period 10 [get_ports clk]
+# Example Tcl also uses uncertainty 0.2 ns and input/output
+# delay 0.5 ns; these are assumptions, not screenshot requirements.
+# Confirm GF22 library timing unit before evaluating constraints.
+
+# Expected files ONLY on a successful run:
+# synth/netlist/Syn_matrix_mul_2x2.v
+# synth/netlist/Syn_matrix_mul_2x2.sdf
+# synth/netlist/Syn_matrix_mul_2x2.sdc
+# synth/logs/area.rpt
+# synth/logs/reference.rpt
+# synth/logs/timing.rpt
+# synth/logs/qor.rpt
+# synth/logs/check.rpt
+# synth/logs/power_unannotated.rpt
+
+# GUI: Logical Hierarchy -> matrix_mul_2x2 -> Schematic View.
+# Capture mapped schematic; inspect report_reference for cell type
+# counts, report_area for total cell area, and report_timing for
+# critical setup path, delay, slack and violations. Confirm
+# check_design has no unresolved references. Do not confuse area
+# with delay. Report synthesis power is not SAIF-annotated power.
+
+D. MODULE 3 SEC 2.3: POST-SYNTHESIS GATE + SDF
+------------------------------------------------
+# Source the VCS environment in your shell (see Section B).
+cd ~/Downloads/test_preparation/nm6008_exam/mock3_sequential_matrix_mul_2x2
+mkdir -p gate_run
+cp synth/netlist/Syn_matrix_mul_2x2.v gate_run/
+cp synth/netlist/Syn_matrix_mul_2x2.sdf gate_run/
+cp tb/tb_matrix_mul_2x2_gate.sv gate_run/
+cd gate_run
+
+# Make a LOCAL library.f using the SAME PDK standard-cell Verilog
+# model filenames and options as your working Module3 example.
+# library.f is intentionally NOT in GitHub.
+# Check top-module and instance names in synthesized netlist:
+grep -n '^module matrix_mul_2x2' Syn_matrix_mul_2x2.v
+
+vcs -full64 -sverilog -debug_access+all +neg_tchk \
+  +define+GATE_SDF -top tb_matrix_mul_2x2_gate \
+  tb_matrix_mul_2x2_gate.sv Syn_matrix_mul_2x2.v \
+  -f ./library.f -o simv_gate -l gate_compile.log
+./simv_gate -l gate_sim.log
+./simv_gate -gui
+
+# Gate TB uses: $sdf_annotate("Syn_matrix_mul_2x2.sdf", dut).
+# Verify annotation log; 'unable to annotate' is NOT a pass.
+# The gate TB clock is 10ns matching this mock's SDC.
+# Verify actual setup/hold violations, outputs and done timing.
+# Save timing-annotated waveform and log.
+
+E. MODULE 3 SEC 2.4: POWER (VPD -> VCD -> SAIF)
+------------------------------------------------
+# In gate_run with the VCS environment still active:
+vcs -full64 -sverilog -debug_access+all +neg_tchk \
+  +define+GATE_SDF+VCS_VPD -top tb_matrix_mul_2x2_gate \
+  tb_matrix_mul_2x2_gate.sv Syn_matrix_mul_2x2.v \
+  -f ./library.f -o simv_gate -l power_compile.log
+./simv_gate -l power_sim.log
+
+# Gate TB explicitly asks VCS to write inter.vpd:
+ls -l inter.vpd
+vpd2vcd inter.vpd inter.vcd
+vcd2saif -i inter.vcd -o inter.saif
+
+# Launch dc_shell-xg-t from a licensed GF22-ready environment
+# with the same local .synopsys_dc.setup as synthesis.
+# From the synth folder, enter the tool:
+cd ../synth
+dc_shell-xg-t
+# At DC prompt:
+read_verilog netlist/Syn_matrix_mul_2x2.v
+current_design matrix_mul_2x2
+link
+read_saif -input ../gate_run/inter.saif -instance tb_matrix_mul_2x2_gate/dut
+report_power > rpt_power.txt
+report_power -hier > rpt_power_hier.txt
+report_power -cell > rpt_power_cell.txt
+
+# Check real activity annotation coverage, hierarchy path,
+# units and library. Report internal, switching, leakage, total.
+# Combined TB switching activity cannot on its own give a fair
+# idle-vs-active comparison: generate isolated activity windows
+# and explain the operating conditions.
+
+F. OPTIONAL MODULE 6: INNOVUS PHYSICAL IMPLEMENTATION
+------------------------------------------------------
+# This is NOT demanded by Mock Test 3.
+# The uploaded 2026 Module6 tutorial uses Cadence Innovus and
+# an example MatrixMultiplier wrapper/IO.globals/IO/sdc/LEF/LIB/RC.
+# Those files are NOT portable to the new DUT without adapting
+# pad count/pin names/PDK/libraries and area. Module6 mentions
+# GF22 FDSOI configuration different from preceding process setup.
+# Therefore DO NOT blindly copy the example floorplan or scripts.
+# Required prerequisites: mapped compatible netlist, IO wrapper,
+# legal technology/pad/standard-cell libraries, IO assignments,
+# timing SDC, RC/QRC, .globals, and authorized scripts.
+
+cd /ACTUAL/MODULE6/WORKDIR
+source cshrc_inno
+innovus
+
+# In Innovus terminal, ONLY once design-specific config exists:
+source <CORRECT_NEW_DESIGN>.globals
+init_design
+clearGlobalNets
+globalNetConnect vdd -type pgpin -pin VDD -inst *
+globalNetConnect gnd -type pgpin -pin VSS -inst *
+
+# Continue in the exact Module6 manual's order:
+#   floorPlan/GUI Specify Floorplan
+#   Power Rings (addRing)
+#   Special Route (sroute)
+#   IO pad filler, end caps
+#   standard cell placement: setPlaceMode / placeDesign
+#   preCTS setup analysis and optimization:
+timeDesign -preCTS
+optDesign -preCTS
+#   CTS and postCTS setup/hold analysis:
+create_ccopt_clock_tree_spec
+ccopt_design -prefix cts
+#   detailed routing (only if correct script exists):
+source ./scripts/Route.tcl
+#   postRoute setup/hold, RC extraction and signoff checks
+#   core fillers, DRC checks, final SDF/netlist/GDS as applicable
+# Compare actual timing and power before vs after layout.
+# Cell names, metal layers, site dimensions and pad coordinates
+# must always match the new design's legal PDK.
+
+G. SUBMISSION CROSSWALK / COMMON ERRORS
+---------------------------------------
+Part 1 (35): RTL architecture, FSM and 8-product schedule.
+Part 2 (25): TB >=100 random + directed cases + DVE screenshots.
+Part 3 (20): 10ns synthesis SDC, mapped schematic, reports.
+Part 4 (15): SAIF-driven measured power with active switching.
+Part 5 (5): report showing test, area, timing, power, analysis.
+Do NOT submit invented signoff numbers or fake DVE images.
+
+- VCS compiles but self-check FAIL: inspect row-major byte mapping,
+  step order, async reset, busy start ignore, done pulse.
+- DC UID-3 your_library.db: missing real target/link .db.
+- Cannot locate script: pwd and check ../rtl and ../scripts.
+- Cannot find delay: see timing.rpt (report_area is AREA only).
+- SDF not annotated: verify simulator instance 'dut', SDF source.
+- SAIF not annotated: check VPD generation, converted activity
+  and instance tb_matrix_mul_2x2_gate/dut.
+- Layout cannot import: need module6-compatible netlist, wrappers,
+  LEF/Lib/SDC/RC and correct GF22 technology configuration.
+
+END.
