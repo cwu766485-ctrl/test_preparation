@@ -33,3 +33,16 @@ library.f
 *.sdf
 *.saif
 
+# NM6008 examination local-only Synopsys / Cadence generated artifacts
+nm6008_exam/*/synth/
+nm6008_exam/*/gate_run/
+nm6008_exam/*/simv*
+nm6008_exam/*/inter.saif
+nm6008_exam/*/*.vcd
+nm6008_exam/*/*.vpd
+nm6008_exam/*/*.rpt
+**/.synopsys_dc.setup
+**/common_setup_gf22.tcl
+**/synopsys_linux*_cshrc
+**/cshrc_inno
+**/library.f
