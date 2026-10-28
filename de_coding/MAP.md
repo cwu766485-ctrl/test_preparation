@@ -41,3 +41,12 @@ make clean
 ```
 
 完整回归脚本和 Rocky Linux VCS 桥接在 [`tools/`](tools/README.md)。仿真覆盖是测试证据，不是形式验证或对所有输入/工艺角的证明。
+## NM6008 Mock3–Mock7（按主题归档）
+
+- [Mock3：时序 2×2 矩阵乘法器](07_arithmetic_and_datapath/matrix_mul_2x2_seq/README.md)
+- [Mock4：8 位串行乘法器](07_arithmetic_and_datapath/multipliers/seq_multiplier8/README.md)
+- [Mock5：行人交通灯控制器](05_fsm_and_protocols/ped_traffic_ctrl/README.md)
+- [Mock6：带反压保持的 4 路轮询仲裁器](06_advanced_topics_and_systems/arbiter/rr_arbiter4_hold/README.md)
+- [Mock7：带帧边界的 XOR 校验器](06_advanced_topics_and_systems/packet_xor_check/README.md)
+
+每个题目目录都有 RTL 结构说明、TB 覆盖说明、VCS Makefile 和 clean 命令。全套回归可在 de_coding 下运行 bash tools/run_mock3_to_mock7_vcs.sh。

@@ -23,7 +23,14 @@
 │   ├── booth_multiplier/
 │   ├── wallace_multiplier/
 │   ├── pipelined_multiplier/
-│   └── matrix_multiplier/
+│   ├── matrix_multiplier/
+│   └── seq_multiplier8/
+├── matrix_mul_2x2_seq/
+│   ├── rtl/
+│   ├── tb/
+│   ├── scripts/
+│   ├── docs/
+│   └── Makefile
 ├── dividers/
 │   ├── restoring_divider/
 │   ├── non_restoring_divider/
@@ -47,3 +54,7 @@
 除法器均为无符号实现：`restoring_divider` 每周期产生一位商；`non_restoring_divider` 使用带符号部分余数逐位迭代；`radix4_divider` 每周期选择两位商；`pipelined_divider` 将逐位恢复除法展开为 WIDTH 级流水线。除数为零时，这些模块约定商为全 1、余数为被除数，并置位 `div_zero`。
 
 `matrix_multiplier` 使用一个共享的有符号乘加 datapath，逐项计算两个 N×N 矩阵的乘积。矩阵按行优先打包，每个元素占 WIDTH 位；结果元素占 ACC_WIDTH 位。空闲时将 start 拉高一个周期即可启动，输入会在启动时锁存。模块每周期完成一次乘加，计算 N^3 个乘积后拉高一周期 done；此时 matrix_c 为完整结果。
+## NM6008 Mock 算术与数据通路
+
+- [Mock3 时序 2×2 矩阵乘法器](matrix_mul_2x2_seq/README.md)：锁存两个 2×2 矩阵，控制器依次计算 8 项，复用单个 8×8 乘法器和 17 位累加器。
+- [Mock4 8 位串行乘法器](multipliers/seq_multiplier8/README.md)：每拍按乘数最低位选择加数，左移被乘数、右移乘数，复用部分积加法器完成 8 次迭代。

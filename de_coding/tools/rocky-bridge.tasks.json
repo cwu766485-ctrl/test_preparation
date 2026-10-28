@@ -1,4 +1,4 @@
-﻿{
+{
   "defaultDistro": "Rocky-8.10",
   "workingDirectory": "/mnt/e/Desktop/ic_de_dv/foundation/de_coding",
   "tasks": {
@@ -56,6 +56,11 @@
       "description": "Run the secret-code assignment scan and legacy secretcode self-checking regressions in isolated temporary directories.",
       "executable": "bash",
       "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_secretcode_vcs.sh"]
+    },
+    "vcs-mock3-to-mock7": {
+      "description": "Run and clean the five Mock3–Mock7 VCS behavioral regressions in their topic folders.",
+      "executable": "bash",
+      "arguments": ["-lic", "cd /mnt/e/Desktop/ic_de_dv/foundation/de_coding && bash tools/run_mock3_to_mock7_vcs.sh"]
     },
     "eda-tools-preflight": {
       "description": "Check whether the course Design Vision/DC and Innovus executables are available in Rocky Linux.",
